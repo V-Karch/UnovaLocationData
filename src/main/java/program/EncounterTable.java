@@ -13,12 +13,13 @@ public class EncounterTable {
     private String rarity;
     private String spriteUrl;
     private String pokemonName;
+    private String encounterType;
     private String formAnnotation;
 
     public EncounterTable(int minimumLevel, int maximumLevel,
     ArrayList<String> gameVersions, ArrayList<String> seasons,
-    ArrayList<String> times, String pokemonName, String formAnnotation, 
-    String rarity, String spriteUrl
+    ArrayList<String> times, String pokemonName, String encounterType,
+    String formAnnotation, String rarity, String spriteUrl
     ) {
         this.minimumLevel = minimumLevel;
         this.maximumLevel = maximumLevel;

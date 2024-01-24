@@ -31,7 +31,7 @@ public class TableManager {
         "Castelia City", 
         "Castelia Sewers", 
         "Celestial Tower", 
-        "Challenger\"s Cave", 
+        "Challenger's Cave", 
         "Chargestone Cave", 
         "Clay Tunnel", 
         "Cold Storage", 

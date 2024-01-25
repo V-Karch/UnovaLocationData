@@ -1,0 +1,48 @@
+pokemonName,location,encounterType,gameVersions,seasons,levelRange,details,floor,rarity,modifier,formInformation
+Patrat,Route 1,Walking,Black/White,Spring/Summer/Autumn/Winter,2-4,,,Common,,
+Lillipup,Route 1,Walking,Black/White,Spring/Summer/Autumn/Winter,2-4,,,Common,,
+Watchog,Route 1,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,56-59,,,Common,,
+Herdier,Route 1,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,56-59,,,Common,,
+Jigglypuff,Route 1,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,57,,,Uncommon,,
+Watchog,Route 1,Walking,Black/White,Spring/Summer/Autumn/Winter,32-35,,,Common,Double Grass,
+Herdier,Route 1,Walking,Black/White,Spring/Summer/Autumn/Winter,32-34,,,Common,Double Grass,
+Scraggy,Route 1,Walking,Black/White,Spring/Summer/Autumn/Winter,33-35,,,Common,Double Grass,
+Watchog,Route 1,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,64-67,,,Common,Double Grass,
+Herdier,Route 1,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,64-67,,,Common,Double Grass,
+Jigglypuff,Route 1,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,65,,,Uncommon,Double Grass,
+Scrafty,Route 1,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,66-67,,,Uncommon,Double Grass,
+Audino,Route 1,Walking,Black/White,Spring/Summer/Autumn/Winter,2-4,,,Common,Shaking/Bubbling spots,
+Audino,Route 1,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,56-59,,,Common,Shaking/Bubbling spots,
+Wigglytuff,Route 1,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,59,,,Rare,Shaking/Bubbling spots,
+Stoutland,Route 1,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,59,,,Rare,Shaking/Bubbling spots,
+Dunsparce,Route 1,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,57,,,Uncommon,Shaking/Bubbling spots,
+Farfetch’d,Route 1,Walking,Black/White,Spring/Summer/Autumn/Winter,2,,,Common,Swarm,
+Basculin,Route 1,Surfing,Black/White,Spring/Summer/Autumn/Winter,5-15,,,Common,,Red-Striped Form
+Basculin,Route 1,Surfing,Black 2/White 2,Spring/Summer/Autumn/Winter,45-60,,,Common,,Red-Striped Form
+Basculin,Route 1,Surfing,Black/White,Spring/Summer/Autumn/Winter,5-20,,,Common,Shaking/Bubbling spots,Red-Striped Form
+Basculin,Route 1,Surfing,Black 2/White 2,Spring/Summer/Autumn/Winter,45-60,,,Common,Shaking/Bubbling spots,Red-Striped Form
+Basculin,Route 1,Super Rod,Black/White,Spring/Summer/Autumn/Winter,35-55,,,Common,,Red-Striped Form
+Basculin,Route 1,Super Rod,Black 2/White 2,Spring/Summer/Autumn/Winter,40-70,,,Common,,Red-Striped Form
+Feebas,Route 1,Super Rod,Black/White,Spring/Summer/Autumn/Winter,35-55,,,Rare,,
+Feebas,Route 1,Super Rod,Black 2/White 2,Spring/Summer/Autumn/Winter,50-70,,,Rare,,
+Feebas,Route 1,Super Rod,Black/White,Spring/Summer/Autumn/Winter,35-60,,,Common,Shaking/Bubbling spots,
+Basculin,Route 1,Super Rod,Black/White,Spring/Summer/Autumn/Winter,35-70,,,Common,Shaking/Bubbling spots,Red-Striped Form
+Feebas,Route 1,Super Rod,Black 2/White 2,Spring/Summer/Autumn/Winter,40-70,,,Common,Shaking/Bubbling spots,
+Basculin,Route 1,Super Rod,Black 2/White 2,Spring/Summer/Autumn/Winter,40-60,,,Common,Shaking/Bubbling spots,Red-Striped Form
+Milotic,Route 1,Super Rod,Black/White,Spring/Summer/Autumn/Winter,45-70,,,Rare,Shaking/Bubbling spots,
+Milotic,Route 1,Super Rod,Black 2/White 2,Spring/Summer/Autumn/Winter,50-70,,,Rare,Shaking/Bubbling spots,
+Patrat,Route 2,Walking,Black/White,Spring/Summer/Autumn/Winter,4-7,,,Common,,
+Lillipup,Route 2,Walking,Black/White,Spring/Summer/Autumn/Winter,4-7,,,Common,,
+Watchog,Route 2,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,56-59,,,Common,,
+Herdier,Route 2,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,56-59,,,Common,,
+Purrloin,Route 2,Walking,Black/White,Spring/Summer/Autumn/Winter,4-5,,,Uncommon,,
+Jigglypuff,Route 2,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,57,,,Uncommon,,
+Lickitung,Route 2,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,58,,,Uncommon,,
+Liepard,Route 2,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,57-58,,,Uncommon,,
+Audino,Route 2,Walking,Black/White,Spring/Summer/Autumn/Winter,4-7,,,Common,Shaking/Bubbling spots,
+Audino,Route 2,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,56-59,,,Common,Shaking/Bubbling spots,
+Wigglytuff,Route 2,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,59,,,Rare,Shaking/Bubbling spots,
+Lickilicky,Route 2,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,59,,,Rare,Shaking/Bubbling spots,
+Stoutland,Route 2,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,59,,,Rare,Shaking/Bubbling spots,
+Dunsparce,Route 2,Walking,Black 2/White 2,Spring/Summer/Autumn/Winter,57-58,,,Uncommon,Shaking/Bubbling spots,
+Patrat,Route 2,Walking,Black/White,Spring/Summer/Autumn/Winter,4-8,,,Common,Swarm,

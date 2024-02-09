@@ -20,14 +20,14 @@ public class Entry {
         this.floor = floor;
         this.rarity = rarity;
         this.details = details;
-        this.minimumLevel = minimumLevel;
-        this.maximumLevel = maximumLevel;
         this.seasons = seasons;
         this.modifier = modifier;
         this.pokemonName = pokemonName;
-        this.formInformation = formInformation;
         this.gameVersions = gameVersions;
+        this.minimumLevel = minimumLevel;
+        this.maximumLevel = maximumLevel;
         this.encounterType = encounterType;
+        this.formInformation = formInformation;
     }
 
     public String getFloor() {

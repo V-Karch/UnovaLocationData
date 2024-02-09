@@ -33,4 +33,34 @@ public class Entry {
     public String getFloor() {
         return this.floor;
     }
+
+    public String getRarity() {
+        return this.rarity.toString();
+    }
+
+    public String getDetails() {
+        return this.details;
+    }
+
+    public int[] getPossibleLevels() {
+        if (this.minimumLevel == this.maximumLevel) {
+            return new int[] { this.minimumLevel };
+            // If the levels are equal
+            // just return one of them in an array of length 1
+        }
+
+        int levelDifference = this.maximumLevel - this.minimumLevel;
+        int[] possibleLevels = new int[levelDifference];
+        int possibleLevelsIndex = 0;
+
+        for (int i = this.minimumLevel; i <= this.maximumLevel; i++) {
+            // For every number from minimum level to maximum level
+            // Add it to the returned array
+
+            possibleLevels[possibleLevelsIndex] = i;
+            possibleLevelsIndex++;
+        }
+
+        return possibleLevels;
+    }
 }

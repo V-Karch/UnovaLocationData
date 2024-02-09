@@ -63,4 +63,14 @@ public class Entry {
 
         return possibleLevels;
     }
+
+    public String[] getSeasons() {
+        String[] possibleSeasons = new String[this.seasons.length];
+
+        for (int i = 0; i < this.seasons.length; i++) {
+            possibleSeasons[i] = this.seasons[i].toString();
+        }
+
+        return possibleSeasons;
+    }
 }

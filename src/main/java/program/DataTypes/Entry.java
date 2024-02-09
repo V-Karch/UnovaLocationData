@@ -29,4 +29,8 @@ public class Entry {
         this.gameVersions = gameVersions;
         this.encounterType = encounterType;
     }
+
+    public String getFloor() {
+        return this.floor;
+    }
 }

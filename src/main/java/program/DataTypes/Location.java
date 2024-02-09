@@ -5,4 +5,8 @@ public class Location {
     public Location(Entry[] entries) {
         this.entries = entries;
     }
+
+    public Entry[] getAllEntries() {
+        return this.entries;
+    }
 }

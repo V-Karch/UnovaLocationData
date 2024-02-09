@@ -73,4 +73,30 @@ public class Entry {
 
         return possibleSeasons;
     }
+
+    public String getModifier() {
+        return this.modifier.toString();
+    }
+
+    public String pokemonName() {
+        return this.pokemonName;
+    }
+    
+    public String getFormInformation() {
+        return this.formInformation;
+    }
+
+    public String[] getGameVersions() {
+        String[] possibleGameVersions = new String[this.gameVersions.length];
+
+        for (int i = 0; i < this.gameVersions.length; i++) {
+            possibleGameVersions[i] = this.gameVersions[i].toString();
+        }
+
+        return possibleGameVersions;
+    }
+
+    public String getEncounterType() {
+        return this.encounterType.toString();
+    }
 }

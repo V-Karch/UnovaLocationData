@@ -79,6 +79,7 @@ public class Entry {
                 modifier, pokemonName, formInformation, gameVersions, encounterType);
 
                 result.add(readEntry);
+                nextRecord = csvReader.readNext();
             }
 
             return result;
@@ -160,5 +161,10 @@ public class Entry {
 
     public String getEncounterType() {
         return this.encounterType.toString();
+    }
+
+    @Override
+    public String toString() {
+        return this.pokemonName;
     }
 }

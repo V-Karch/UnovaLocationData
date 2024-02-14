@@ -17,7 +17,7 @@ public enum GameVersion {
         return this.gameVersionString;
     }
 
-    public GameVersion[] fromString(String readLine) {
+    public static GameVersion[] fromString(String readLine) {
         String[] gameStrings = readLine.split("/");
         GameVersion[] result = new GameVersion[gameStrings.length];
 

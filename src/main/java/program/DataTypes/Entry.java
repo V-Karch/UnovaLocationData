@@ -1,5 +1,12 @@
 package program.DataTypes;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
+
 public class Entry {
     private String floor;
     private Rarity rarity;
@@ -28,6 +35,61 @@ public class Entry {
         this.maximumLevel = maximumLevel;
         this.encounterType = encounterType;
         this.formInformation = formInformation;
+    }
+
+    public static ArrayList<Entry> readLocation(String filename, String location) {
+        try (FileReader fileReader = new FileReader(filename);
+        CSVReader csvReader = new CSVReader(fileReader);
+        ) {
+            String[] nextRecord = csvReader.readNext(); // Skip header
+            ArrayList<Entry> result = new ArrayList<>();
+
+
+            while (nextRecord != null) {
+                if (!location.equals(nextRecord[1])) {
+                    nextRecord = csvReader.readNext(); // Read next line
+                    continue; // If the location doesn't match, skip the previous line
+                }
+
+                // Contstruct Entry
+                String pokemonName = nextRecord[0];
+                EncounterType encounterType = EncounterType.fromString(nextRecord[2]);
+                GameVersion[] gameVersions = GameVersion.fromString(nextRecord[3]);
+                Season[] seasons = Season.fromString(nextRecord[4]);
+
+                int minimumLevel;
+                int maximumLevel;
+
+                if (nextRecord[5].contains("-")) { // levelRange
+                    String[] levelValues = nextRecord[5].split("-");
+                    minimumLevel = Integer.parseInt(levelValues[0]);
+                    maximumLevel = Integer.parseInt(levelValues[1]);
+                } else {
+                    minimumLevel = Integer.parseInt(nextRecord[5]);
+                    maximumLevel = Integer.parseInt(nextRecord[5]);
+                } // Assign level range
+
+                String details = nextRecord[6];
+                String floor = nextRecord[7];
+                Rarity rarity = Rarity.fromString(nextRecord[8]);
+                Modifier modifier = Modifier.fromString(nextRecord[9]);
+                String formInformation = nextRecord[10];
+
+                Entry readEntry = new Entry(floor, rarity, details, minimumLevel, maximumLevel, seasons,
+                modifier, pokemonName, formInformation, gameVersions, encounterType);
+
+                result.add(readEntry);
+            }
+
+            return result;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        } catch (CsvValidationException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public String getFloor() {

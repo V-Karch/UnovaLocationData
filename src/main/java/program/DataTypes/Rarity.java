@@ -16,4 +16,19 @@ public enum Rarity {
     public String toString() {
         return this.rarityString;
     }
+
+    public static Rarity fromString(String readLine) {
+        switch (readLine) {
+            case "Common":
+                return Rarity.COMMON;
+            case "Uncommon":
+                return Rarity.UNCOMMON;
+            case "Rare":
+                return Rarity.RARE;
+            case "Limited":
+                return Rarity.LIMITED;
+            default:
+                return Rarity.COMMON;
+        }
+    }
 }

@@ -25,15 +25,15 @@ public class Entry {
     Modifier modifier, String pokemonName, String formInformation,
     GameVersion[] gameVersions, EncounterType encounterType) {
         this.floor = floor;
-        this.rarity = rarity;
-        this.details = details;
-        this.seasons = seasons;
-        this.modifier = modifier;
-        this.pokemonName = pokemonName;
-        this.gameVersions = gameVersions;
-        this.minimumLevel = minimumLevel;
-        this.maximumLevel = maximumLevel;
-        this.encounterType = encounterType;
+        this.rarity = rarity; //
+        this.details = details; //
+        this.seasons = seasons; //
+        this.modifier = modifier; //
+        this.pokemonName = pokemonName; //
+        this.gameVersions = gameVersions; //
+        this.minimumLevel = minimumLevel; //
+        this.maximumLevel = maximumLevel; //
+        this.encounterType = encounterType; //
         this.formInformation = formInformation;
     }
 
@@ -163,8 +163,36 @@ public class Entry {
         return this.encounterType.toString();
     }
 
+    private String formatGameVersionsForToString() {
+        String[] gameVersions = this.getGameVersions();
+        String output = "";
+
+        for (int i = 0; i < gameVersions.length; i++) {
+            output += gameVersions[i] + ", ";
+        }
+
+        return output.substring(0, output.length() - 2);
+    }
+
+    private String formatSeasonsForToString() {
+        String[] seasons = this.getSeasons();
+        String output = "";
+
+        for (int i = 0; i < seasons.length; i++) {
+            output += seasons[i] + ", ";
+        }
+
+        return output.substring(0, output.length() - 2);
+    }
+
     @Override
     public String toString() {
-        return this.pokemonName;
+        String output = String.format(
+        "Entry{pokemonName=<%s>, gameVersions=<%s>, seasons=<%s>, rarity=<%s>, levelRange=<%d-%d>, encounterType=<%s>, details=<%s>, modifier=<%s>, floor=<%s>, formInformation=<%s>",
+        pokemonName, this.formatGameVersionsForToString(), this.formatSeasonsForToString(), this.rarity.toString(),
+        this.minimumLevel, this.maximumLevel, this.getEncounterType(), 
+        this.getDetails(), this.getModifier(), this.getFloor(), this.getFormInformation());
+
+        return output;
     }
 }

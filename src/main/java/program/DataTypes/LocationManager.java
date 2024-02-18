@@ -107,4 +107,15 @@ public class LocationManager {
 
         return false;
     }
+
+    public static void listValidLocations() {
+        String toPrint = "";
+        for (int i = 0; i < allLocations.length; i++) {
+            toPrint += allLocations[i] + ", ";
+        }
+
+        toPrint = toPrint.substring(0, toPrint.length() - 2);
+
+        System.out.println(toPrint);
+    }
 }

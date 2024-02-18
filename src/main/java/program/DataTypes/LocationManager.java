@@ -75,15 +75,11 @@ public class LocationManager {
         "White Forest"
     };
 
-    public LocationManager() {
-
-    }
-
     /**
      * Attempts to load a location
      * If it fails to, returns null
      */
-    public Location loadLocation(String locationName) {
+    public static Location loadLocation(String locationName) {
         boolean validityCheck = isValidLocation(locationName);
 
         if (!validityCheck) {
@@ -95,7 +91,7 @@ public class LocationManager {
         return location;
     }
 
-    private boolean isValidLocation(String locationName) {
+    private static boolean isValidLocation(String locationName) {
         String asLowerCase = locationName.toLowerCase();
 
         for (int i = 0; i < allLocations.length; i++) {

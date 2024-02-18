@@ -91,6 +91,11 @@ public class LocationManager {
         return location;
     }
 
+    /**
+     * 
+     * @param locationName String
+     * @return boolean, whether the location is in the valid list (true) or not (false)
+     */
     private static boolean isValidLocation(String locationName) {
         String asLowerCase = locationName.toLowerCase();
 

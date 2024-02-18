@@ -1,10 +1,12 @@
 package program;
 
 import program.DataTypes.Location;
+import program.DataTypes.LocationManager;
 
 public class Main {
     public static void main(String args[]) {
-        Location location = new Location("Route 1");
-        location.printAllEntries();
+        LocationManager manager = new LocationManager();
+        Location unknown = manager.loadLocation("womp womp");
+        unknown.printAllEntries(); // Should error
     } 
 }

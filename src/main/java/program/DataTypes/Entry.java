@@ -25,15 +25,15 @@ public class Entry {
     Modifier modifier, String pokemonName, String formInformation,
     GameVersion[] gameVersions, EncounterType encounterType) {
         this.floor = floor;
-        this.rarity = rarity; //
-        this.details = details; //
-        this.seasons = seasons; //
-        this.modifier = modifier; //
-        this.pokemonName = pokemonName; //
-        this.gameVersions = gameVersions; //
-        this.minimumLevel = minimumLevel; //
-        this.maximumLevel = maximumLevel; //
-        this.encounterType = encounterType; //
+        this.rarity = rarity;
+        this.details = details;
+        this.seasons = seasons;
+        this.modifier = modifier;
+        this.pokemonName = pokemonName;
+        this.gameVersions = gameVersions;
+        this.minimumLevel = minimumLevel;
+        this.maximumLevel = maximumLevel;
+        this.encounterType = encounterType;
         this.formInformation = formInformation;
     }
 
@@ -204,4 +204,5 @@ public class Entry {
         return;
     }
     
+    // Implement many methods here to filter an ArrayList<Entry> by a specific token
 }

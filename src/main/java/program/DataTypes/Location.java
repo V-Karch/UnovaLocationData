@@ -18,19 +18,6 @@ public class Location {
         return this.locationName;
     }
 
-    public ArrayList<Entry> getEntriesByPokemonName(String pokemonName) {
-        String asLowerCase = pokemonName.toLowerCase();
-        ArrayList<Entry> foundEntries = new ArrayList<Entry>(); 
-
-        for (int i = 0; i < this.entries.size(); i++) {
-            if (asLowerCase.equals(this.entries.get(i).pokemonName().toLowerCase())) {
-                foundEntries.add(this.entries.get(i));
-            }
-        }
-
-        return foundEntries;
-    }
-
     public void printAllEntries() {
         for (int i = 0; i < entries.size(); i++) {
             System.out.println(entries.get(i));

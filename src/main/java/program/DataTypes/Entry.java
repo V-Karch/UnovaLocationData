@@ -195,4 +195,13 @@ public class Entry {
 
         return output;
     }
+
+    public static void printGivenEntries(ArrayList<Entry> givenEntires) {
+        for (int i = 0; i < givenEntires.size(); i++) {
+            System.out.println(givenEntires.get(i));
+        }
+
+        return;
+    }
+    
 }

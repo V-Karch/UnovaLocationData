@@ -1,4 +1,4 @@
-package program.DataTypes;
+package program.DataTypes.Enums;
 
 public enum Modifier {
     SHAKING_BUBBLING_SPOTS("Shaking/Bubbling spots"),

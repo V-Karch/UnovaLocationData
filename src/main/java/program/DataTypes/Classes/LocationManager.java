@@ -1,4 +1,4 @@
-package program.DataTypes;
+package program.DataTypes.Classes;
 
 public class LocationManager {
     public static String[] allLocations = {

@@ -1,4 +1,4 @@
-package program.DataTypes;
+package program.DataTypes.Enums;
 
 public enum Rarity {
     COMMON("Common"),

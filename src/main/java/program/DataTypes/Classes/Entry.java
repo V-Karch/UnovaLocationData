@@ -209,17 +209,4 @@ public class Entry {
 
         return;
     }
-    
-    // Implement many methods here to filter an ArrayList<Entry> by a specific token
-    public static ArrayList<Entry> filterByPokemonName(ArrayList<Entry> givenEntries, String pokemonName) {
-        ArrayList<Entry> filteredResult = new ArrayList<Entry>();
-
-        for (int i = 0; i < givenEntries.size(); i++) {
-            if (givenEntries.get(i).pokemonName().toLowerCase().equals(pokemonName.toLowerCase())) {
-                filteredResult.add(givenEntries.get(i));
-            }
-        }
-
-        return filteredResult;
-    }
 }

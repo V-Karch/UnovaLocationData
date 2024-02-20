@@ -49,12 +49,25 @@ public class Entry {
         ) {
             String[] nextRecord = csvReader.readNext(); // Skip header
             ArrayList<Entry> result = new ArrayList<>();
-
+            Boolean started_recording = false; // whether or not the reader has found a matching location
 
             while (nextRecord != null) {
                 if (!location.equals(nextRecord[1])) {
                     nextRecord = csvReader.readNext(); // Read next line
                     continue; // If the location doesn't match, skip the previous line
+                }
+
+                if (!location.equals(nextRecord[1]) && started_recording) {
+                    break; // Exit loop as soon as the reader hits a location that doesn't match
+                    // AND is guarenteed to have read at least one location
+                }
+
+                if (!started_recording) {
+                    started_recording = true; 
+                    // At this point, we are certain that an eligable entry has been met
+                    // If started recording is still false, turn it to true
+
+                    // The if statement prevents multiple assignments to the same variable
                 }
 
                 // Contstruct Entry

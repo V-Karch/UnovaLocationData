@@ -18,12 +18,13 @@ public enum Modifier {
     }
 
     public static Modifier fromString(String readLine) {
+        readLine = readLine.toLowerCase();
         switch (readLine) {
-            case "Shaking/Bubbling spots":
+            case "shaking/bubbling spots":
                 return Modifier.SHAKING_BUBBLING_SPOTS;
-            case "Double Grass":
+            case "double grass":
                 return Modifier.DOUBLE_GRASS;
-            case "Swarm":
+            case "swarm":
                 return Modifier.SWARM;
             default:
                 return Modifier.NONE;

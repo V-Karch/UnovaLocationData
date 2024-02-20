@@ -18,14 +18,15 @@ public enum Rarity {
     }
 
     public static Rarity fromString(String readLine) {
+        readLine = readLine.toLowerCase();
         switch (readLine) {
-            case "Common":
+            case "common":
                 return Rarity.COMMON;
-            case "Uncommon":
+            case "uncommon":
                 return Rarity.UNCOMMON;
-            case "Rare":
+            case "rare":
                 return Rarity.RARE;
-            case "Limited":
+            case "limited":
                 return Rarity.LIMITED;
             default:
                 return Rarity.COMMON;

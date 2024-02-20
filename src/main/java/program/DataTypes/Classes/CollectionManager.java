@@ -1,6 +1,6 @@
 package program.DataTypes.Classes;
 
-public class LocationManager {
+public class CollectionManager {
     public static String[] allLocations = {
         "Route 1",
         "Route 2",
@@ -79,7 +79,7 @@ public class LocationManager {
      * Attempts to load a location
      * If it fails to, returns null
      */
-    public static Location loadLocation(String locationName) {
+    public static Collection loadLocation(String locationName) {
         boolean validityCheck = isValidLocation(locationName);
 
         if (!validityCheck) {
@@ -87,8 +87,8 @@ public class LocationManager {
             return null;
         }
 
-        Location location = new Location(locationName);
-        return location;
+        Collection collection = new Collection(locationName);
+        return collection;
     }
 
     /**

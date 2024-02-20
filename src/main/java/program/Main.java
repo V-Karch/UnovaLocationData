@@ -1,11 +1,10 @@
 package program;
 
-import program.DataTypes.Classes.Location;
-import program.DataTypes.Classes.LocationManager;
+import program.DataTypes.Classes.Collection;
 
 public class Main {
     public static void main(String args[]) {
-        Location route1 = LocationManager.loadLocation("Route 1");
-        route1.printAllEntries();
+        Collection route14 = new Collection("Route 14");
+        route14.printAllEntries();
     }
 }

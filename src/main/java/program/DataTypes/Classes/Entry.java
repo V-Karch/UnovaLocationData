@@ -118,7 +118,7 @@ public class Entry {
             // just return one of them in an array of length 1
         }
 
-        int levelDifference = this.maximumLevel - this.minimumLevel;
+        int levelDifference = this.maximumLevel - this.minimumLevel + 1;
         int[] possibleLevels = new int[levelDifference];
         int possibleLevelsIndex = 0;
 

@@ -194,7 +194,7 @@ public class Entry {
     @Override
     public String toString() {
         String output = String.format(
-        "Entry{pokemonName=<%s>, gameVersions=<%s>, seasons=<%s>, rarity=<%s>, levelRange=<%d-%d>, encounterType=<%s>, details=<%s>, modifier=<%s>, floor=<%s>, formInformation=<%s>",
+        "Entry{pokemonName=<%s>, gameVersions=<%s>, seasons=<%s>, rarity=<%s>, levelRange=<%d-%d>, encounterType=<%s>, details=<%s>, modifier=<%s>, floor=<%s>, formInformation=<%s>}",
         pokemonName, this.formatGameVersionsForToString(), this.formatSeasonsForToString(), this.rarity.toString(),
         this.minimumLevel, this.maximumLevel, this.getEncounterType(), 
         this.getDetails(), this.getModifier(), this.getFloor(), this.getFormInformation());

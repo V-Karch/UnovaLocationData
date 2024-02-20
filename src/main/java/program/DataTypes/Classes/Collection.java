@@ -14,6 +14,7 @@ public class Collection {
 
     public Collection(ArrayList<Entry> collection) {
         this.collection = collection; // Alternate constructor for chaining
+        this.locationName = "N/A";
     }
 
     public ArrayList<Entry> getAllEntries() {

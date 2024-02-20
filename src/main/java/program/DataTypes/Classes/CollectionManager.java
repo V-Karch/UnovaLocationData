@@ -79,7 +79,7 @@ public class CollectionManager {
      * Attempts to load a location
      * If it fails to, returns null
      */
-    public static Collection loadLocation(String locationName) {
+    public static Collection loadCollection(String locationName) {
         boolean validityCheck = isValidLocation(locationName);
 
         if (!validityCheck) {

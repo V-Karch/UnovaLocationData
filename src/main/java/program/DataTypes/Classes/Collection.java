@@ -162,6 +162,19 @@ public class Collection {
 
     };
 
+    private Collection filterLocation(String filterString) {
+        ArrayList<Entry> result = new ArrayList<Entry>();
+        for (int i = 0; i < this.collection.size(); i++) {
+            Entry currentEntry = this.collection.get(i);
+
+            if (currentEntry.getLocation().toLowerCase().equals(filterString)) {
+                result.add(currentEntry);
+            }
+        }
+
+        return new Collection(result);
+    };
+
     public Collection filter(FilterType method, String filterString) {
         filterString = filterString.toLowerCase();
 
@@ -182,6 +195,8 @@ public class Collection {
                 return this.filterRarity(filterString);
             case SEASON:
                 return this.filterSeason(filterString);
+            case LOCATION:
+                return this.filterLocation(filterString);
             default:
                 return this; // If the method is somehow unknown, give back the original collection
         }

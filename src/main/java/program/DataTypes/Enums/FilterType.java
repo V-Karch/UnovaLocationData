@@ -8,5 +8,6 @@ public enum FilterType {
     LEVEL,
     ENCOUNTER_TYPE,
     MODIFIER,
-    FLOOR;
+    FLOOR,
+    LOCATION;
 }

@@ -112,7 +112,7 @@ public class Entry {
         }
     }
 
-    public static ArrayList<Entry> readAll(String filename, String location) {
+    public static ArrayList<Entry> readAll(String filename) {
         try (FileReader fileReader = new FileReader(filename);
         CSVReader csvReader = new CSVReader(fileReader);
         ) {

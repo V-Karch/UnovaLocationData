@@ -17,6 +17,11 @@ public class Collection {
         this.locationName = "N/A";
     }
 
+    public Collection() {
+        this.collection = new ArrayList<>(); // Create empty collection
+        this.locationName = "N/A"; // Creating an empty collection
+    }
+
     public ArrayList<Entry> getAllEntries() {
         return this.collection;
     }

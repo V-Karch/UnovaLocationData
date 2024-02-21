@@ -17,6 +17,7 @@ public class Entry {
     private String floor;
     private Rarity rarity;
     private String details;
+    private String location;
     private int minimumLevel;
     private int maximumLevel;
     private Season[] seasons;
@@ -26,10 +27,11 @@ public class Entry {
     private GameVersion[] gameVersions;
     private EncounterType encounterType;
 
-    public Entry(String floor, Rarity rarity, String details,
-    int minimumLevel, int maximumLevel, Season[] seasons,
-    Modifier modifier, String pokemonName, String formInformation,
-    GameVersion[] gameVersions, EncounterType encounterType) {
+    public Entry(String floor, Rarity rarity, String details, 
+    String location, int minimumLevel, int maximumLevel, 
+    Season[] seasons,Modifier modifier, String pokemonName, 
+    String formInformation, GameVersion[] gameVersions, 
+    EncounterType encounterType) {
         this.floor = floor;
         this.rarity = rarity;
         this.details = details;
@@ -94,8 +96,9 @@ public class Entry {
                 Modifier modifier = Modifier.fromString(nextRecord[9]);
                 String formInformation = nextRecord[10];
 
-                Entry readEntry = new Entry(floor, rarity, details, minimumLevel, maximumLevel, seasons,
-                modifier, pokemonName, formInformation, gameVersions, encounterType);
+                Entry readEntry = new Entry(floor, rarity, details, location, 
+                minimumLevel, maximumLevel, seasons, modifier, 
+                pokemonName, formInformation, gameVersions, encounterType);
 
                 result.add(readEntry);
                 nextRecord = csvReader.readNext();
@@ -122,6 +125,7 @@ public class Entry {
             while (nextRecord != null) {
                 // Contstruct Entry
                 String pokemonName = nextRecord[0];
+                String location = nextRecord[1];
                 EncounterType encounterType = EncounterType.fromString(nextRecord[2]);
                 GameVersion[] gameVersions = GameVersion.fromString(nextRecord[3]);
                 Season[] seasons = Season.fromString(nextRecord[4]);
@@ -144,8 +148,9 @@ public class Entry {
                 Modifier modifier = Modifier.fromString(nextRecord[9]);
                 String formInformation = nextRecord[10];
 
-                Entry readEntry = new Entry(floor, rarity, details, minimumLevel, maximumLevel, seasons,
-                modifier, pokemonName, formInformation, gameVersions, encounterType);
+                Entry readEntry = new Entry(floor, rarity, details, location, 
+                minimumLevel, maximumLevel, seasons, modifier, 
+                pokemonName, formInformation, gameVersions, encounterType);
 
                 result.add(readEntry); // Add Entry to list
                 nextRecord = csvReader.readNext();

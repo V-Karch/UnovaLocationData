@@ -181,4 +181,20 @@ public class Collection {
                 return this; // If the method is somehow unknown, give back the original collection
         }
     }
+
+    public Collection combine(Object object) {
+        if (!(object instanceof Collection)) {
+            return null;
+        }
+
+        ArrayList<Entry> result = this.collection;
+        Collection otherCollection = (Collection)object;
+        ArrayList<Entry> otherEntries = otherCollection.getAllEntries();
+
+        for (int i = 0; i < otherEntries.size(); i++) {
+            result.add(otherEntries.get(i));
+        }
+
+        return new Collection(result);
+    }
 }

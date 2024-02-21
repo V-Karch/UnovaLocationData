@@ -92,6 +92,15 @@ public class CollectionManager {
     }
 
     /**
+     * Loads every Entry in the file and returns them as a Collection
+     * @return Collection
+     */
+    public static Collection loadAll() {
+        Collection result = new Collection(Entry.readAll("data/encounterData.csv"));
+        return result; // Loads all Entries and returns a collection with all of them
+    }
+
+    /**
      * 
      * @param locationName String
      * @return boolean, whether the location is in the valid list (true) or not (false)

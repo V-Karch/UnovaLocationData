@@ -6,10 +6,11 @@ import program.DataTypes.Classes.CollectionManager;
 
 public class Main {
     public static void main(String args[]) {
-        Collection route14 = CollectionManager.loadCollection("Abundant Shrine");
-        route14
+        Collection data = CollectionManager.loadAll();
+        data
+            .filter(FilterType.LOCATION, "Abundant Shrine")
             .filter(FilterType.GAME_VERSION, "Black")
-            .filter(FilterType.ENCOUNTER_TYPE, "Walking")
+            .filter(FilterType.ENCOUNTER_TYPE, "Interact")
             .printAllEntries();
     }
 }

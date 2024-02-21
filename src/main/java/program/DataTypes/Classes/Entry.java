@@ -37,6 +37,7 @@ public class Entry {
         this.details = details;
         this.seasons = seasons;
         this.modifier = modifier;
+        this.location = location;
         this.pokemonName = pokemonName;
         this.gameVersions = gameVersions;
         this.minimumLevel = minimumLevel;
@@ -50,6 +51,7 @@ public class Entry {
         CSVReader csvReader = new CSVReader(fileReader);
         ) {
             String[] nextRecord = csvReader.readNext(); // Skip header
+            nextRecord = csvReader.readNext(); // Assign to first row
             ArrayList<Entry> result = new ArrayList<>();
             Boolean started_recording = false; // whether or not the reader has found a matching location
 
@@ -120,6 +122,7 @@ public class Entry {
         CSVReader csvReader = new CSVReader(fileReader);
         ) {
             String[] nextRecord = csvReader.readNext(); // Skip header
+            nextRecord = csvReader.readNext(); // Assign first value
             ArrayList<Entry> result = new ArrayList<>();
 
             while (nextRecord != null) {

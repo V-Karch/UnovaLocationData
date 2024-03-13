@@ -3,15 +3,13 @@ package program.DataTypes.Classes;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvValidationException;
-
-import program.DataTypes.Enums.EncounterType;
-import program.DataTypes.Enums.GameVersion;
-import program.DataTypes.Enums.Modifier;
 import program.DataTypes.Enums.Rarity;
 import program.DataTypes.Enums.Season;
+import program.DataTypes.Enums.Modifier;
+import program.DataTypes.Enums.GameVersion;
+import program.DataTypes.Enums.EncounterType;
+import com.opencsv.exceptions.CsvValidationException;
 
 public class Entry {
     private String floor;

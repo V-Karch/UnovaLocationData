@@ -1,7 +1,6 @@
 package program.DataTypes.Classes;
 
 import java.util.ArrayList;
-
 import program.DataTypes.Enums.FilterType;
 
 public class Collection {

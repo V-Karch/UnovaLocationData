@@ -6,7 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import program.DataTypes.Enums.EncounterType;
 
-public class GUIMaker {
+public class GUIFactory {
     public static ComboBox<EncounterType> encounterTypeDropdown() {
         ObservableList<EncounterType> options = 
             FXCollections.observableArrayList(

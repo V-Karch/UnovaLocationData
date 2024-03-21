@@ -13,7 +13,8 @@ public class GUITesting extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         GridPane gridPane = new GridPane();
-        gridPane.add(GUIFactory.encounterTypeDropdown(), 1, 1);
+        gridPane.add(GUIFactory.encounterTypeLabel(), 0, 0);
+        gridPane.add(GUIFactory.encounterTypeDropdown(), 0, 1);
 
         Scene scene = new Scene(gridPane, 500, 500);
         stage.setScene(scene);

@@ -1,6 +1,7 @@
 package program.GUI;
 
 
+import javafx.scene.control.Label;
 import javafx.scene.control.ComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,5 +21,10 @@ public class GUIFactory {
 
         final ComboBox<EncounterType> dropdownMenu = new ComboBox<>(options);
         return dropdownMenu;
+    }
+
+    public static Label encounterTypeLabel() {
+        Label label = new Label("Encounter Type:");
+        return label;
     }
 }

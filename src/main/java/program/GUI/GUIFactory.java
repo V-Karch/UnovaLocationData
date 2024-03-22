@@ -3,6 +3,7 @@ package program.GUI;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.ComboBox;
+import program.DataTypes.Enums.Rarity;
 import javafx.collections.FXCollections;
 import program.DataTypes.Enums.Modifier;
 import javafx.collections.ObservableList;
@@ -64,6 +65,24 @@ public class GUIFactory {
 
     public static Label modifierLabel() {
         Label label = new Label("Modifier:");
+        return label;
+    }
+
+    public static ComboBox<Rarity> rarityDropdown() {
+        ObservableList<Rarity> options = 
+            FXCollections.observableArrayList(
+                Rarity.COMMON,
+                Rarity.UNCOMMON,
+                Rarity.RARE,
+                Rarity.LIMITED
+            );
+
+        final ComboBox<Rarity> dropdownMenu = new ComboBox<>(options);
+        return dropdownMenu;
+    }
+
+    public static Label rarityLabel() {
+        Label label = new Label("Rarity:");
         return label;
     }
 }

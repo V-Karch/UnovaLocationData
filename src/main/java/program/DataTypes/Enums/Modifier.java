@@ -3,7 +3,7 @@ package program.DataTypes.Enums;
 public enum Modifier {
     SHAKING_BUBBLING_SPOTS("Shaking/Bubbling spots"),
     DOUBLE_GRASS("Double Grass"),
-    NONE(""),
+    NONE("None"),
     SWARM("Swarm");
 
     private String modifierString;
@@ -26,6 +26,8 @@ public enum Modifier {
                 return Modifier.DOUBLE_GRASS;
             case "swarm":
                 return Modifier.SWARM;
+            case "":
+                return Modifier.NONE;
             default:
                 return Modifier.NONE;
         }

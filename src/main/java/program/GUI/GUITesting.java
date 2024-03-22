@@ -18,6 +18,8 @@ public class GUITesting extends Application {
         gridPane.add(GUIFactory.gameVersionDropdown(), 0, 1);
         gridPane.add(GUIFactory.encounterTypeLabel(), 1, 0);
         gridPane.add(GUIFactory.encounterTypeDropdown(), 1, 1);
+        gridPane.add(GUIFactory.modifierLabel(), 2, 0);
+        gridPane.add(GUIFactory.modifierDropdown(), 2, 1);
 
         Scene scene = new Scene(gridPane, 500, 500);
         stage.setScene(scene);

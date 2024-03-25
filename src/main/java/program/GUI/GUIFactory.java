@@ -17,7 +17,9 @@ import javafx.collections.FXCollections;
 import program.DataTypes.Enums.Modifier;
 import javafx.collections.ObservableList;
 import program.DataTypes.Enums.GameVersion;
+import program.DataTypes.Classes.Collection;
 import program.DataTypes.Enums.EncounterType;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class GUIFactory {
     private static final ArrayList<String> validNodeTypes = new ArrayList<>();
@@ -291,28 +293,21 @@ public class GUIFactory {
     }
 
     @SuppressWarnings("unchecked")
-    public static TableView<String> entryTableView() {
-        TableView<String> entryTable = new TableView<>();
+    public static TableView<Entry> entryTableView() {
+        TableView<Entry> entryTable = new TableView<>();
         entryTable.setEditable(false);
-        TableColumn<String, String> pokemonNameColumn = new TableColumn<>("Pokemon"); 
-        TableColumn<String, String> gameVersionColumn = new TableColumn<>("Versions"); 
-        TableColumn<String, String> seasonColumn = new TableColumn<>("Seasons"); 
-        TableColumn<String, String> rarityColumn = new TableColumn<>("Rarity"); 
-        TableColumn<String, String> levelColumn = new TableColumn<>("Levels"); 
-        TableColumn<String, String> encounterTypeColumn = new TableColumn<>("Encounter Type");
-        TableColumn<String, String> modifierColumn = new TableColumn<>("Modifier");
-        TableColumn<String, String> floorColumn = new TableColumn<>("Floor");
-        TableColumn<String, String> locationColumn = new TableColumn<>("Location");
-        
-        pokemonNameColumn.setEditable(false);
-        gameVersionColumn.setEditable(false);
-        seasonColumn.setEditable(false);
-        rarityColumn.setEditable(false);
-        levelColumn.setEditable(false);
-        encounterTypeColumn.setEditable(false);
-        modifierColumn.setEditable(false);
-        floorColumn.setEditable(false);
-        locationColumn.setEditable(false);
+        TableColumn<Entry, String> pokemonNameColumn = new TableColumn<>("Pokemon"); 
+        TableColumn<Entry, String> gameVersionColumn = new TableColumn<>("Versions"); 
+        TableColumn<Entry, String> seasonColumn = new TableColumn<>("Seasons"); 
+        TableColumn<Entry, String> rarityColumn = new TableColumn<>("Rarity"); 
+        TableColumn<Entry, String> levelColumn = new TableColumn<>("Levels"); 
+        TableColumn<Entry, String> encounterTypeColumn = new TableColumn<>("Encounter Type");
+        TableColumn<Entry, String> modifierColumn = new TableColumn<>("Modifier");
+        TableColumn<Entry, String> floorColumn = new TableColumn<>("Floor");
+        TableColumn<Entry, String> locationColumn = new TableColumn<>("Location");
+
+        pokemonNameColumn.setCellValueFactory(new PropertyValueFactory<>("pokemonName"));
+        gameVersionColumn.setCellValueFactory(new PropertyValueFactory<>("gameVersions"));
 
         encounterTypeColumn.setMinWidth(130);
 
@@ -321,7 +316,7 @@ public class GUIFactory {
         levelColumn, encounterTypeColumn, 
         modifierColumn, floorColumn, locationColumn);
 
-        for (TableColumn<String, ?> column: entryTable.getColumns()) {
+        for (TableColumn<Entry, ?> column: entryTable.getColumns()) {
             column.setEditable(false);
             column.setResizable(false);
             column.setReorderable(false);
@@ -329,5 +324,13 @@ public class GUIFactory {
         }
 
         return entryTable;
+    }
+
+    public static void updateTable(TableView<Entry> entryTableView, 
+    Collection filteredCollection) {
+        ObservableList<Entry> entryList = 
+            FXCollections.observableArrayList(filteredCollection.getAllEntries());
+        
+        entryTableView.setItems(entryList);
     }
 }

@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.application.Application;
 import program.DataTypes.Enums.Rarity;
 import program.DataTypes.Enums.Season;
+import program.DataTypes.Classes.Entry;
 import program.DataTypes.Enums.Modifier;
 import program.DataTypes.Enums.FilterType;
 import program.DataTypes.Enums.GameVersion;
@@ -55,7 +56,7 @@ public class GUITesting extends Application {
         Button searchButton = GUIFactory.searchButton();
         Label locationLabel = GUIFactory.locationLabel();
         ComboBox<String> locationDropdown = GUIFactory.locationDropDown();
-        TableView<String> entryTableView = GUIFactory.entryTableView();
+        TableView<Entry> entryTableView = GUIFactory.entryTableView();
 
         // Adding everything to the gridpane
         gridPane.add(gameVersionLabel, 0, 0);
@@ -89,6 +90,8 @@ public class GUITesting extends Application {
             encounterTypeDropdown, 
             modifierDropdown, rarityDropdown, seasonDropdown, 
             locationDropdown, pokemonNameEntry, levelEntry);
+
+            GUIFactory.updateTable(entryTableView, results);
 
             results.printAllEntries();
         });

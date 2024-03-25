@@ -6,13 +6,14 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.application.Application;
 import program.DataTypes.Enums.Rarity;
 import program.DataTypes.Enums.Season;
+import program.DataTypes.Classes.Entry;
 import program.DataTypes.Enums.Modifier;
-import javafx.scene.control.PasswordField;
 import program.DataTypes.Enums.GameVersion;
 import program.DataTypes.Enums.EncounterType;
 
@@ -49,6 +50,7 @@ public class GUITesting extends Application {
         Button searchButton = GUIFactory.searchButton();
         Label locationLabel = GUIFactory.locationLabel();
         ComboBox<String> locationDropdown = GUIFactory.locationDropDown();
+        ListView<Entry> entryList = GUIFactory.entryList();
 
         // Adding everything to the gridpane
         gridPane.add(gameVersionLabel, 0, 0);
@@ -69,14 +71,17 @@ public class GUITesting extends Application {
         gridPane.add(levelEntry, 0, 15);
         gridPane.add(searchButton, 0, 16);
         gridPane.add(resetButton, 0, 17);
+        gridPane.add(entryList, 1, 0, 2, 18);
 
+        entryList.setStyle("-fx-background-color: #FFFFFF;");
+        entryList.setPrefWidth(500);
+        entryList.setMaxHeight(Double.MAX_VALUE);
 
         searchButton.setOnAction(event -> {
             System.out.println("Search Button Pressed!");
         });
 
         resetButton.setOnAction(event -> {
-            System.out.println("Reset Button Pressed!");
             gameVersionDropdown.getSelectionModel().clearSelection();
             encounterTypeDropdown.getSelectionModel().clearSelection();
             modifierDropdown.getSelectionModel().clearSelection();
@@ -86,13 +91,6 @@ public class GUITesting extends Application {
             pokemonNameEntry.clear();
             levelEntry.clear();
         });
-
-        // For testing a general area where list/data will pop up
-        PasswordField testingPanel = new PasswordField();
-        gridPane.add(testingPanel, 1, 0, 2, 18);
-        testingPanel.setStyle("-fx-background-color: #FFFFFF;");
-        testingPanel.setMaxHeight(Double.MAX_VALUE);
-        testingPanel.setPrefWidth(500);
         
         Scene scene = new Scene(gridPane, 700, 500);
         stage.setScene(scene);

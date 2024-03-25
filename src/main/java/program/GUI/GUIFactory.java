@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import program.DataTypes.Enums.Rarity;
 import program.DataTypes.Enums.Season;
+import program.DataTypes.Classes.Entry;
 import javafx.collections.FXCollections;
 import program.DataTypes.Enums.Modifier;
 import javafx.collections.ObservableList;
@@ -279,5 +281,10 @@ public class GUIFactory {
     public static Label locationLabel() {
         Label label = new Label("Location:");
         return label;
+    }
+
+    public static ListView<Entry> entryList() {
+        ListView<Entry> list = new ListView<>();
+        return list;
     }
 }

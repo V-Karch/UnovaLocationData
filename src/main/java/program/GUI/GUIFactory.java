@@ -184,11 +184,11 @@ public class GUIFactory {
 
     public static Button resetButton() {
         Button button = new Button("Reset Filters");
+        return button;
+    }
 
-        button.setOnAction(event -> {
-            System.out.println("Button Clicked!");
-        });
-
+    public static Button searchButton() {
+        Button button = new Button("Search");
         return button;
     }
 }

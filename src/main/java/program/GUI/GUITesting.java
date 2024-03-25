@@ -2,6 +2,7 @@ package program.GUI;
 
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
@@ -25,6 +26,7 @@ public class GUITesting extends Application {
         gridPane.setHgap(5);
         gridPane.setVgap(5);
         gridPane.setStyle("-fx-background-color: #9695a0");
+        gridPane.setPadding(new Insets(5, 5, 5, 5));
         stage.setTitle("Unova Location Data Parser");
 
         // Variable Setup
@@ -43,6 +45,7 @@ public class GUITesting extends Application {
         Label levelLabel = GUIFactory.levelLabel();
         TextField levelEntry = GUIFactory.levelEntry();
         Button resetButton = GUIFactory.resetButton();
+        Button searchButton = GUIFactory.searchButton();
 
         // Adding everything to the gridpane
         gridPane.add(gameVersionLabel, 0, 0);
@@ -59,13 +62,13 @@ public class GUITesting extends Application {
         gridPane.add(pokemonNameEntry, 0, 11);
         gridPane.add(levelLabel, 0, 12);
         gridPane.add(levelEntry, 0, 13);
-        gridPane.add(resetButton, 0, 14);
+        gridPane.add(searchButton, 0, 14);
+        gridPane.add(resetButton, 0, 15);
 
-        Scene scene = new Scene(gridPane, 500, 500);
+        Scene scene = new Scene(gridPane, 650, 450);
         stage.setScene(scene);
         stage.show();
 
-        double size = GUIFactory.resizeGUI(gridPane);
-        System.out.println(size);
+        GUIFactory.resizeGUI(gridPane);
     }
 }

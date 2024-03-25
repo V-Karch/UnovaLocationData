@@ -3,6 +3,7 @@ package program.GUI;
 import javafx.scene.Node;
 import java.util.ArrayList;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -58,6 +59,9 @@ public class GUIFactory {
                     break;
                 case "TextField":
                     ((TextField)node).setPrefWidth(maximumNodeWidth);
+                    break;
+                case "Button":
+                    ((Button)node).setPrefWidth(maximumNodeWidth);
                     break;
             }
         }
@@ -173,5 +177,10 @@ public class GUIFactory {
     public static Label levelLabel() {
         Label label = new Label("Level:");
         return label;
+    }
+
+    public static Button resetButton() {
+        Button button = new Button("Reset Filters");
+        return button;
     }
 }

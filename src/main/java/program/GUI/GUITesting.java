@@ -4,6 +4,7 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.ListView;
@@ -14,10 +15,16 @@ import program.DataTypes.Enums.Rarity;
 import program.DataTypes.Enums.Season;
 import program.DataTypes.Classes.Entry;
 import program.DataTypes.Enums.Modifier;
+import program.DataTypes.Enums.FilterType;
 import program.DataTypes.Enums.GameVersion;
+import program.DataTypes.Classes.Collection;
 import program.DataTypes.Enums.EncounterType;
+import program.DataTypes.Classes.CollectionManager;
 
 public class GUITesting extends Application {
+    public static final Collection allData = CollectionManager.loadAll();
+    // Load all the data a single time so it doesn't have to be loaded
+    // repeatedly, which would waste resources
     public static void main(String args[]) {
         Application.launch(args);
     }
@@ -76,9 +83,16 @@ public class GUITesting extends Application {
         entryList.setStyle("-fx-background-color: #FFFFFF;");
         entryList.setPrefWidth(500);
         entryList.setMaxHeight(Double.MAX_VALUE);
+        entryList.setOrientation(Orientation.VERTICAL);
 
         searchButton.setOnAction(event -> {
             System.out.println("Search Button Pressed!");
+            Collection results = search(gameVersionDropdown, 
+            encounterTypeDropdown, 
+            modifierDropdown, rarityDropdown, seasonDropdown, 
+            locationDropdown, pokemonNameEntry, levelEntry);
+
+            results.printAllEntries();
         });
 
         resetButton.setOnAction(event -> {
@@ -97,5 +111,77 @@ public class GUITesting extends Application {
         stage.show();
 
         GUIFactory.resizeGUI(gridPane);
+    }
+
+    public static Collection search(ComboBox<GameVersion> gameVersionDropdown, 
+    ComboBox<EncounterType> encounterTypeDropdown, 
+    ComboBox<Modifier> modifierDropdown,
+    ComboBox<Rarity> rarityDropdown, ComboBox<Season> seasonDropdown, 
+    ComboBox<String> locationDropDown,
+    TextField pokemonNameEntry, TextField levelEntry) {
+
+        GameVersion gameVersion = gameVersionDropdown.getValue();
+        EncounterType encounterType = encounterTypeDropdown.getValue();
+        Modifier modifier = modifierDropdown.getValue();
+        Rarity rarity = rarityDropdown.getValue();
+        Season season = seasonDropdown.getValue();
+        String location = locationDropDown.getValue();
+        String pokemonName = pokemonNameEntry.getText();
+        String levelValues = levelEntry.getText();
+
+        Collection result = allData; // This data will never change
+        // Running .filter() is non-destructive
+
+        if (location != null) {
+            result = result.filter(FilterType.LOCATION, location);
+            System.out.println("Filtered Location!");
+            result.printAllEntries();
+        }
+
+        if (gameVersion != null) {
+            result = result.filter(FilterType.GAME_VERSION, gameVersion.toString());
+            System.out.println("Filtered Game Version!");
+            result.printAllEntries();
+        } // I forgot that they all take in strings... womp womp
+
+        if (encounterType != null) {
+            result = result.filter(FilterType.ENCOUNTER_TYPE, encounterType.toString());
+            System.out.println("Filtered Encounter Type!");
+            result.printAllEntries();
+        }
+
+        if (modifier != null) {
+            result = result.filter(FilterType.MODIFIER, modifier.toString());
+            System.out.println("Filtered Modifier!");
+            result.printAllEntries();
+        }
+
+        if (rarity != null) {
+            result = result.filter(FilterType.RARITY, rarity.toString());
+            System.out.println("Filtered Rarity!");
+            result.printAllEntries();
+        }
+
+        if (season != null) {
+            result = result.filter(FilterType.SEASON, season.toString());
+            System.out.println("Filtered Season!");
+            result.printAllEntries();
+        }
+
+        if (!pokemonName.equals("")) {
+            result = result.filter(FilterType.POKEMON_NAME, pokemonName);
+            System.out.println("Filtered Pokemon Name!");
+            result.printAllEntries();
+        }
+
+        if (!levelValues.equals("")) {
+            result = result.filter(FilterType.LEVEL, levelValues);
+            System.out.println("Filtered Level!");
+            result.printAllEntries();
+        }
+
+        System.out.println("Reached end of method!");
+
+        return result;
     }
 }

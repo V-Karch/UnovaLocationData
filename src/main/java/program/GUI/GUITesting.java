@@ -47,6 +47,8 @@ public class GUITesting extends Application {
         TextField levelEntry = GUIFactory.levelEntry();
         Button resetButton = GUIFactory.resetButton();
         Button searchButton = GUIFactory.searchButton();
+        Label locationLabel = GUIFactory.locationLabel();
+        ComboBox<String> locationDropdown = GUIFactory.locationDropDown();
 
         // Adding everything to the gridpane
         gridPane.add(gameVersionLabel, 0, 0);
@@ -59,20 +61,22 @@ public class GUITesting extends Application {
         gridPane.add(rarityDropdown, 0, 7);
         gridPane.add(seasonLabel, 0, 8);
         gridPane.add(seasonDropdown, 0, 9);
-        gridPane.add(pokemonNameLabel, 0, 10);
-        gridPane.add(pokemonNameEntry, 0, 11);
-        gridPane.add(levelLabel, 0, 12);
-        gridPane.add(levelEntry, 0, 13);
-        gridPane.add(searchButton, 0, 14);
-        gridPane.add(resetButton, 0, 15);
+        gridPane.add(locationLabel, 0, 10);
+        gridPane.add(locationDropdown, 0, 11);
+        gridPane.add(pokemonNameLabel, 0, 12);
+        gridPane.add(pokemonNameEntry, 0, 13);
+        gridPane.add(levelLabel, 0, 14);
+        gridPane.add(levelEntry, 0, 15);
+        gridPane.add(searchButton, 0, 16);
+        gridPane.add(resetButton, 0, 17);
 
         PasswordField testingPanel = new PasswordField();
-        gridPane.add(testingPanel, 1, 0, 2, 16);
+        gridPane.add(testingPanel, 1, 0, 2, 18);
         testingPanel.setStyle("-fx-background-color: #FFFFFF;");
         testingPanel.setMaxHeight(Double.MAX_VALUE);
-        testingPanel.setPrefWidth(450);
+        testingPanel.setPrefWidth(500);
         
-        Scene scene = new Scene(gridPane, 650, 450);
+        Scene scene = new Scene(gridPane, 700, 500);
         stage.setScene(scene);
         stage.show();
 

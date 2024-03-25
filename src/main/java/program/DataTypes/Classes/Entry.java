@@ -206,7 +206,38 @@ public class Entry {
         return possibleLevels;
     }
 
-    public String[] getSeasons() {
+    public String getSeasons() {
+        String result = "";
+        String[] seasonsArray = getSeasonsArray();
+
+        if (seasonsArray.length == 4) {
+            return "All";
+        }
+
+        for (String season: getSeasonsArray()) {
+            if (season.toLowerCase().equals("spring")) {
+                result += "sp";
+            }
+
+            if (season.toLowerCase().equals("summer")) {
+                result += "su";
+            }
+
+            if (season.toLowerCase().equals("autumn")) {
+                result += "au";
+            }
+
+            if (season.toLowerCase().equals("winter")) {
+                result += "wi";
+            }
+
+            result += "/";
+        }
+
+        return result.substring(0, result.length() - 1);
+    }
+
+    public String[] getSeasonsArray() {
         String[] possibleSeasons = new String[this.seasons.length];
 
         for (int i = 0; i < this.seasons.length; i++) {
@@ -280,7 +311,7 @@ public class Entry {
     }
 
     private String formatSeasonsForToString() {
-        String[] seasons = this.getSeasons();
+        String[] seasons = this.getSeasonsArray();
         String output = "";
 
         for (int i = 0; i < seasons.length; i++) {

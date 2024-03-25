@@ -309,6 +309,9 @@ public class GUIFactory {
         pokemonNameColumn.setCellValueFactory(new PropertyValueFactory<>("pokemonName"));
         gameVersionColumn.setCellValueFactory(new PropertyValueFactory<>("gameVersions"));
         seasonColumn.setCellValueFactory(new PropertyValueFactory<>("seasons"));
+        rarityColumn.setCellValueFactory(new PropertyValueFactory<>("rarity"));
+        levelColumn.setCellValueFactory(new PropertyValueFactory<>("levelRange"));
+
 
         encounterTypeColumn.setMinWidth(130);
 

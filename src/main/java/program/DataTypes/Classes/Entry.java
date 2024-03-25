@@ -184,6 +184,10 @@ public class Entry {
         return this.location;
     }
 
+    public String getLevelRange() {
+        return this.minimumLevel == this.maximumLevel ? this.minimumLevel + "" : this.minimumLevel + "-" + this.maximumLevel;
+    }
+
     public int[] getPossibleLevels() {
         if (this.minimumLevel == this.maximumLevel) {
             return new int[] { this.minimumLevel };

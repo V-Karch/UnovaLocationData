@@ -311,9 +311,15 @@ public class GUIFactory {
         seasonColumn.setCellValueFactory(new PropertyValueFactory<>("seasons"));
         rarityColumn.setCellValueFactory(new PropertyValueFactory<>("rarity"));
         levelColumn.setCellValueFactory(new PropertyValueFactory<>("levelRange"));
-
+        encounterTypeColumn.setCellValueFactory(new PropertyValueFactory<>("encounterType"));
+        modifierColumn.setCellValueFactory(new PropertyValueFactory<>("modifier"));
+        floorColumn.setCellValueFactory(new PropertyValueFactory<>("floor"));
+        locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
 
         encounterTypeColumn.setMinWidth(130);
+        floorColumn.setMinWidth(90);
+        modifierColumn.setMinWidth(160);
+        locationColumn.setMinWidth(150);
 
         entryTable.getColumns().addAll(pokemonNameColumn, 
         gameVersionColumn, seasonColumn, rarityColumn, 

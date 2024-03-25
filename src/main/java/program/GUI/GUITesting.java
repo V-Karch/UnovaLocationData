@@ -80,20 +80,17 @@ public class GUITesting extends Application {
         gridPane.add(entryTableView, 1, 0, 2, 18);
 
         entryTableView.setStyle("-fx-background-color: #FFFFFF;");
-        entryTableView.setPrefWidth(770);
+        entryTableView.setPrefWidth(931);
         entryTableView.setMaxHeight(Double.MAX_VALUE);
         entryTableView.setEditable(false);
 
         searchButton.setOnAction(event -> {
-            System.out.println("Search Button Pressed!");
             Collection results = search(gameVersionDropdown, 
             encounterTypeDropdown, 
             modifierDropdown, rarityDropdown, seasonDropdown, 
             locationDropdown, pokemonNameEntry, levelEntry);
 
             GUIFactory.updateTable(entryTableView, results);
-
-            results.printAllEntries();
         });
 
         resetButton.setOnAction(event -> {
@@ -105,9 +102,10 @@ public class GUITesting extends Application {
             locationDropdown.getSelectionModel().clearSelection();
             pokemonNameEntry.clear();
             levelEntry.clear();
+            entryTableView.getItems().clear();
         });
         
-        Scene scene = new Scene(gridPane, 980, 500);
+        Scene scene = new Scene(gridPane, 1140, 500);
         stage.setScene(scene);
         stage.show();
 

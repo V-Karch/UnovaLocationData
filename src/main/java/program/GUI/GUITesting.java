@@ -20,6 +20,10 @@ public class GUITesting extends Application {
         gridPane.add(GUIFactory.encounterTypeDropdown(), 1, 1);
         gridPane.add(GUIFactory.modifierLabel(), 2, 0);
         gridPane.add(GUIFactory.modifierDropdown(), 2, 1);
+        gridPane.add(GUIFactory.rarityLabel(), 0, 3);
+        gridPane.add(GUIFactory.rarityDropdown(), 0, 4);
+        gridPane.add(GUIFactory.seasonLabel(), 1, 3);
+        gridPane.add(GUIFactory.seasonDropdown(), 1, 4);
 
         Scene scene = new Scene(gridPane, 500, 500);
         stage.setScene(scene);

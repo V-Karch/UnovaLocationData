@@ -1,6 +1,8 @@
 package program.GUI;
 
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import program.DataTypes.Enums.Rarity;
@@ -12,6 +14,40 @@ import program.DataTypes.Enums.GameVersion;
 import program.DataTypes.Enums.EncounterType;
 
 public class GUIFactory {
+    /**
+     * This method only works correctly after the stage has been shown at least
+     * one time
+     * 
+     * @param gridPane
+     */
+    @SuppressWarnings("rawtypes")
+    public static void resizeGUI(GridPane gridPane) {
+        double maximumNodeWidth = 0;
+
+        for (Node node: gridPane.getChildren()) {
+            double nodeWidth = node.getBoundsInParent().getWidth();
+            if (nodeWidth > maximumNodeWidth) {
+                maximumNodeWidth = nodeWidth;
+            }
+        } // Determine the largest width element shown
+
+        System.out.println("Largest Node: " + maximumNodeWidth);
+
+        for (Node node: gridPane.getChildren()) {
+            String nodeType = node.getTypeSelector();
+            switch (nodeType) {
+                case "Label":
+                    ((Label)node).setPrefWidth(maximumNodeWidth);
+                    break;
+                case "ComboBox":
+                    ((ComboBox)node).setPrefWidth(maximumNodeWidth);
+                    break;
+                case "TextField":
+                    ((TextField)node).setPrefWidth(maximumNodeWidth);
+                    break;
+            }
+        }
+    }
     public static ComboBox<EncounterType> encounterTypeDropdown() {
         ObservableList<EncounterType> options = 
             FXCollections.observableArrayList(

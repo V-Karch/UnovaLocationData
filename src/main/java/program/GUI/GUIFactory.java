@@ -1,6 +1,5 @@
 package program.GUI;
 
-
 import javafx.scene.control.Label;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -113,6 +112,16 @@ public class GUIFactory {
 
     public static Label pokemonNameLabel() {
         Label label = new Label("Pokemon Name:");
+        return label;
+    }
+
+    public static TextField levelEntry() {
+        TextField entryField = new TextField();
+        return entryField;
+    }
+
+    public static Label levelLabel() {
+        Label label = new Label("Level:");
         return label;
     }
 }

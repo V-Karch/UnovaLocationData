@@ -89,13 +89,41 @@ public class Collection {
         for (int i = 0; i < this.collection.size(); i++) {
             Entry currentEntry = this.collection.get(i);
             int[] possibleLevels = currentEntry.getPossibleLevels();
-            int parsedInt = Integer.parseInt(filterString);
 
-            for (int j = 0; j < possibleLevels.length; j++) {
-                if (possibleLevels[j] == parsedInt) {
-                    result.add(currentEntry);
-                    break; // Exit inner loop to prevent duplicate additions
+            if (filterString.contains("-")) {
+                String[] levelValues = filterString.split("-");
+                try {
+                    int minimum = Integer.parseInt(levelValues[0]);
+                    int maximum = Integer.parseInt(levelValues[1]);
+
+                    if (minimum > maximum || minimum <= 0 || maximum > 100) {
+                        throw new NumberFormatException(); 
+                        // Run straight to the catch if any of the
+                        // params are out of bounds
+                    }
+
+                    for (int possibleLevel: possibleLevels) {
+                        if (minimum <= possibleLevel && possibleLevel <= maximum) {
+                            result.add(currentEntry);
+                            break;
+                        }
+                    }
+                } catch (NumberFormatException e) {
+                    return new Collection(result);
                 }
+            }
+
+            try {
+                int parsedInt = Integer.parseInt(filterString);
+
+                for (int j = 0; j < possibleLevels.length; j++) {
+                    if (possibleLevels[j] == parsedInt) {
+                        result.add(currentEntry);
+                        break; // Exit inner loop to prevent duplicate additions
+                    }
+                }
+            } catch (NumberFormatException e) {
+                return new Collection(result);
             }
         }
 

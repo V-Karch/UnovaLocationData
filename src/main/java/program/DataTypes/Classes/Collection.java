@@ -179,7 +179,7 @@ public class Collection {
         ArrayList<Entry> result = new ArrayList<Entry>();
         for (int i = 0; i < this.collection.size(); i++) {
             Entry currentEntry = this.collection.get(i);
-            String[] seasons = currentEntry.getSeasons();
+            String[] seasons = currentEntry.getSeasonsArray();
 
             for (int j = 0; j < seasons.length; j++) {
                 if (seasons[j].toLowerCase().equals(filterString)) {

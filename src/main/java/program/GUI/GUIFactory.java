@@ -18,8 +18,8 @@ import program.DataTypes.Enums.GameVersion;
 import program.DataTypes.Enums.EncounterType;
 
 public class GUIFactory {
-    public static final ArrayList<String> validNodeTypes = new ArrayList<>();
-    public static ArrayList<String> validLocations = new ArrayList<>();
+    private static final ArrayList<String> validNodeTypes = new ArrayList<>();
+    private static final ArrayList<String> validLocations = new ArrayList<>();
 
     static {
         validNodeTypes.add("Label");

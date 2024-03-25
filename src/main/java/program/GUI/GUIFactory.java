@@ -3,6 +3,7 @@ package program.GUI;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import program.DataTypes.Enums.Rarity;
 import program.DataTypes.Enums.Season;
 import javafx.collections.FXCollections;
@@ -102,6 +103,16 @@ public class GUIFactory {
 
     public static Label seasonLabel() {
         Label label = new Label("Season:");
+        return label;
+    }
+
+    public static TextField pokemonNameEntry() {
+        TextField entryField = new TextField();
+        return entryField;
+    }
+
+    public static Label pokemonNameLabel() {
+        Label label = new Label("Pokemon Name:");
         return label;
     }
 }

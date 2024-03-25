@@ -13,6 +13,9 @@ public class GUITesting extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         GridPane gridPane = new GridPane();
+        gridPane.setHgap(5);
+        gridPane.setVgap(5);
+        gridPane.setStyle("-fx-background-color: #9695a0");
         stage.setTitle("Unova Location Data Parser");
         gridPane.add(GUIFactory.gameVersionLabel(), 0, 0);
         gridPane.add(GUIFactory.gameVersionDropdown(), 0, 1);
@@ -24,6 +27,8 @@ public class GUITesting extends Application {
         gridPane.add(GUIFactory.rarityDropdown(), 0, 4);
         gridPane.add(GUIFactory.seasonLabel(), 1, 3);
         gridPane.add(GUIFactory.seasonDropdown(), 1, 4);
+        gridPane.add(GUIFactory.pokemonNameLabel(), 2, 3);
+        gridPane.add(GUIFactory.pokemonNameEntry(), 2, 4);
 
         Scene scene = new Scene(gridPane, 500, 500);
         stage.setScene(scene);

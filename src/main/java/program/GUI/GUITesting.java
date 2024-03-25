@@ -12,6 +12,7 @@ import javafx.application.Application;
 import program.DataTypes.Enums.Rarity;
 import program.DataTypes.Enums.Season;
 import program.DataTypes.Enums.Modifier;
+import javafx.scene.control.PasswordField;
 import program.DataTypes.Enums.GameVersion;
 import program.DataTypes.Enums.EncounterType;
 
@@ -25,7 +26,7 @@ public class GUITesting extends Application {
         GridPane gridPane = new GridPane();
         gridPane.setHgap(5);
         gridPane.setVgap(5);
-        gridPane.setStyle("-fx-background-color: #9695a0");
+        gridPane.setStyle("-fx-background-color: #9a9a9a");
         gridPane.setPadding(new Insets(5, 5, 5, 5));
         stage.setTitle("Unova Location Data Parser");
 
@@ -65,6 +66,12 @@ public class GUITesting extends Application {
         gridPane.add(searchButton, 0, 14);
         gridPane.add(resetButton, 0, 15);
 
+        PasswordField testingPanel = new PasswordField();
+        gridPane.add(testingPanel, 1, 0, 2, 16);
+        testingPanel.setStyle("-fx-background-color: #FFFFFF;");
+        testingPanel.setMaxHeight(Double.MAX_VALUE);
+        testingPanel.setPrefWidth(450);
+        
         Scene scene = new Scene(gridPane, 650, 450);
         stage.setScene(scene);
         stage.show();

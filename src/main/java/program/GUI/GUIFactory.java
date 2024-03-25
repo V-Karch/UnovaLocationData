@@ -64,6 +64,8 @@ public class GUIFactory {
                 case "Button":
                     ((Button)node).setPrefWidth(maximumNodeWidth);
                     break;
+                default:
+                    break;
             }
         }
 

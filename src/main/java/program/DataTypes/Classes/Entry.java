@@ -220,7 +220,7 @@ public class Entry {
         return this.modifier.toString();
     }
 
-    public String pokemonName() {
+    public String getPokemonName() {
         return this.pokemonName;
     }
     
@@ -228,7 +228,7 @@ public class Entry {
         return this.formInformation;
     }
 
-    public String[] getGameVersions() {
+    public String[] getGameVersionsArray() {
         String[] possibleGameVersions = new String[this.gameVersions.length];
 
         for (int i = 0; i < this.gameVersions.length; i++) {
@@ -242,8 +242,34 @@ public class Entry {
         return this.encounterType.toString();
     }
 
+    public String getGameVersions() {
+        String result = "";
+
+        for (String version: this.getGameVersionsArray()) {
+            if (version.toLowerCase().equals("black")) {
+                result += "B";
+            }
+
+            if (version.toLowerCase().equals("white")) {
+                result += "W";
+            }
+
+            if (version.toLowerCase().equals("black 2")) {
+                result += "B2";
+            }
+
+            if (version.toLowerCase().equals("white 2")) {
+                result += "W2";
+            }
+
+            result += "/";
+        }
+
+        return result.substring(0, result.length() - 1);
+    }
+
     private String formatGameVersionsForToString() {
-        String[] gameVersions = this.getGameVersions();
+        String[] gameVersions = this.getGameVersionsArray();
         String output = "";
 
         for (int i = 0; i < gameVersions.length; i++) {

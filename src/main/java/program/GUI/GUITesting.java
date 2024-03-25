@@ -4,16 +4,14 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-import javafx.scene.control.ListView;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.application.Application;
 import program.DataTypes.Enums.Rarity;
 import program.DataTypes.Enums.Season;
-import program.DataTypes.Classes.Entry;
 import program.DataTypes.Enums.Modifier;
 import program.DataTypes.Enums.FilterType;
 import program.DataTypes.Enums.GameVersion;
@@ -57,7 +55,7 @@ public class GUITesting extends Application {
         Button searchButton = GUIFactory.searchButton();
         Label locationLabel = GUIFactory.locationLabel();
         ComboBox<String> locationDropdown = GUIFactory.locationDropDown();
-        ListView<Entry> entryList = GUIFactory.entryList();
+        TableView<String> entryTableView = GUIFactory.entryTableView();
 
         // Adding everything to the gridpane
         gridPane.add(gameVersionLabel, 0, 0);
@@ -78,12 +76,12 @@ public class GUITesting extends Application {
         gridPane.add(levelEntry, 0, 15);
         gridPane.add(searchButton, 0, 16);
         gridPane.add(resetButton, 0, 17);
-        gridPane.add(entryList, 1, 0, 2, 18);
+        gridPane.add(entryTableView, 1, 0, 2, 18);
 
-        entryList.setStyle("-fx-background-color: #FFFFFF;");
-        entryList.setPrefWidth(500);
-        entryList.setMaxHeight(Double.MAX_VALUE);
-        entryList.setOrientation(Orientation.VERTICAL);
+        entryTableView.setStyle("-fx-background-color: #FFFFFF;");
+        entryTableView.setPrefWidth(770);
+        entryTableView.setMaxHeight(Double.MAX_VALUE);
+        entryTableView.setEditable(false);
 
         searchButton.setOnAction(event -> {
             System.out.println("Search Button Pressed!");
@@ -106,7 +104,7 @@ public class GUITesting extends Application {
             levelEntry.clear();
         });
         
-        Scene scene = new Scene(gridPane, 700, 500);
+        Scene scene = new Scene(gridPane, 980, 500);
         stage.setScene(scene);
         stage.show();
 

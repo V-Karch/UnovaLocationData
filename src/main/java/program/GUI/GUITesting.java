@@ -65,6 +65,7 @@ public class GUITesting extends Application {
         stage.setScene(scene);
         stage.show();
 
-        GUIFactory.resizeGUI(gridPane);
+        double size = GUIFactory.resizeGUI(gridPane);
+        System.out.println(size);
     }
 }

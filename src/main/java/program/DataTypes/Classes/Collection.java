@@ -69,7 +69,7 @@ public class Collection {
 
         for (int i = 0; i < this.collection.size(); i++) {
             Entry currentEntry = this.collection.get(i);
-            String[] gameVersions = currentEntry.getGameVersions();
+            String[] gameVersions = currentEntry.getGameVersionsArray();
 
             for (int j = 0; j < gameVersions.length; j++) {
                 String gameVersionAsLowerCase = gameVersions[j].toLowerCase();
@@ -154,7 +154,7 @@ public class Collection {
         for (int i = 0; i < this.collection.size(); i++) {
             Entry currentEntry = this.collection.get(i);
 
-            if (currentEntry.pokemonName().toLowerCase().equals(filterString)) {
+            if (currentEntry.getPokemonName().toLowerCase().equals(filterString)) {
                 result.add(currentEntry);
             }
         }

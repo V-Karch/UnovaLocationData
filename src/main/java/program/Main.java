@@ -8,7 +8,9 @@ public class Main {
     public static void main(String args[]) {
         Collection data = CollectionManager.loadAll();
         data
-            .filter(FilterType.LEVEL, "1-5")
+            .filter(FilterType.LOCATION, "Abundant Shrine")
+            .filter(FilterType.GAME_VERSION, "Black")
+            .filter(FilterType.ENCOUNTER_TYPE, "Interact")
             .printAllEntries();
     }
 }

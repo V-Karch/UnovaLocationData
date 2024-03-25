@@ -7,10 +7,12 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import program.DataTypes.Enums.Rarity;
 import program.DataTypes.Enums.Season;
 import program.DataTypes.Classes.Entry;
+import javafx.scene.control.TableColumn;
 import javafx.collections.FXCollections;
 import program.DataTypes.Enums.Modifier;
 import javafx.collections.ObservableList;
@@ -286,5 +288,46 @@ public class GUIFactory {
     public static ListView<Entry> entryList() {
         ListView<Entry> list = new ListView<>();
         return list;
+    }
+
+    @SuppressWarnings("unchecked")
+    public static TableView<String> entryTableView() {
+        TableView<String> entryTable = new TableView<>();
+        entryTable.setEditable(false);
+        TableColumn<String, String> pokemonNameColumn = new TableColumn<>("Pokemon"); 
+        TableColumn<String, String> gameVersionColumn = new TableColumn<>("Versions"); 
+        TableColumn<String, String> seasonColumn = new TableColumn<>("Seasons"); 
+        TableColumn<String, String> rarityColumn = new TableColumn<>("Rarity"); 
+        TableColumn<String, String> levelColumn = new TableColumn<>("Levels"); 
+        TableColumn<String, String> encounterTypeColumn = new TableColumn<>("Encounter Type");
+        TableColumn<String, String> modifierColumn = new TableColumn<>("Modifier");
+        TableColumn<String, String> floorColumn = new TableColumn<>("Floor");
+        TableColumn<String, String> locationColumn = new TableColumn<>("Location");
+        
+        pokemonNameColumn.setEditable(false);
+        gameVersionColumn.setEditable(false);
+        seasonColumn.setEditable(false);
+        rarityColumn.setEditable(false);
+        levelColumn.setEditable(false);
+        encounterTypeColumn.setEditable(false);
+        modifierColumn.setEditable(false);
+        floorColumn.setEditable(false);
+        locationColumn.setEditable(false);
+
+        encounterTypeColumn.setMinWidth(130);
+
+        entryTable.getColumns().addAll(pokemonNameColumn, 
+        gameVersionColumn, seasonColumn, rarityColumn, 
+        levelColumn, encounterTypeColumn, 
+        modifierColumn, floorColumn, locationColumn);
+
+        for (TableColumn<String, ?> column: entryTable.getColumns()) {
+            column.setEditable(false);
+            column.setResizable(false);
+            column.setReorderable(false);
+            column.setSortable(false);
+        }
+
+        return entryTable;
     }
 }

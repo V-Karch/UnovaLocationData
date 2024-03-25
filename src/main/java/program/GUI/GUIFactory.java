@@ -22,6 +22,7 @@ public class GUIFactory {
         validNodeTypes.add("Label");
         validNodeTypes.add("ComboBox");
         validNodeTypes.add("TextField");
+        validNodeTypes.add("Button");
     }
 
     /**
@@ -31,7 +32,7 @@ public class GUIFactory {
      * @param gridPane
      */
     @SuppressWarnings("rawtypes")
-    public static void resizeGUI(GridPane gridPane) {
+    public static double resizeGUI(GridPane gridPane) {
         double maximumNodeWidth = 0;
 
         for (Node node: gridPane.getChildren()) {
@@ -65,6 +66,8 @@ public class GUIFactory {
                     break;
             }
         }
+
+        return maximumNodeWidth;
     }
     public static ComboBox<EncounterType> encounterTypeDropdown() {
         ObservableList<EncounterType> options = 
@@ -181,6 +184,11 @@ public class GUIFactory {
 
     public static Button resetButton() {
         Button button = new Button("Reset Filters");
+
+        button.setOnAction(event -> {
+            System.out.println("Button Clicked!");
+        });
+
         return button;
     }
 }

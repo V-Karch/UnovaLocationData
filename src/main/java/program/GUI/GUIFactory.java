@@ -4,6 +4,7 @@ package program.GUI;
 import javafx.scene.control.Label;
 import javafx.scene.control.ComboBox;
 import program.DataTypes.Enums.Rarity;
+import program.DataTypes.Enums.Season;
 import javafx.collections.FXCollections;
 import program.DataTypes.Enums.Modifier;
 import javafx.collections.ObservableList;
@@ -83,6 +84,24 @@ public class GUIFactory {
 
     public static Label rarityLabel() {
         Label label = new Label("Rarity:");
+        return label;
+    }
+
+    public static ComboBox<Season> seasonDropdown() {
+        ObservableList<Season> options =
+            FXCollections.observableArrayList(
+                Season.SPRING,
+                Season.SUMMER,
+                Season.AUTUMN,
+                Season.WINTER
+            );
+
+        final ComboBox<Season> dropdownMenu = new ComboBox<>(options);
+        return dropdownMenu;
+    }
+
+    public static Label seasonLabel() {
+        Label label = new Label("Season:");
         return label;
     }
 }

@@ -70,6 +70,24 @@ public class GUITesting extends Application {
         gridPane.add(searchButton, 0, 16);
         gridPane.add(resetButton, 0, 17);
 
+
+        searchButton.setOnAction(event -> {
+            System.out.println("Search Button Pressed!");
+        });
+
+        resetButton.setOnAction(event -> {
+            System.out.println("Reset Button Pressed!");
+            gameVersionDropdown.getSelectionModel().clearSelection();
+            encounterTypeDropdown.getSelectionModel().clearSelection();
+            modifierDropdown.getSelectionModel().clearSelection();
+            rarityDropdown.getSelectionModel().clearSelection();
+            seasonDropdown.getSelectionModel().clearSelection();
+            locationDropdown.getSelectionModel().clearSelection();
+            pokemonNameEntry.clear();
+            levelEntry.clear();
+        });
+
+        // For testing a general area where list/data will pop up
         PasswordField testingPanel = new PasswordField();
         gridPane.add(testingPanel, 1, 0, 2, 18);
         testingPanel.setStyle("-fx-background-color: #FFFFFF;");

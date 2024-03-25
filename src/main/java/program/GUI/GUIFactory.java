@@ -1,6 +1,7 @@
 package program.GUI;
 
 import javafx.scene.Node;
+import java.util.ArrayList;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.ComboBox;
@@ -14,6 +15,14 @@ import program.DataTypes.Enums.GameVersion;
 import program.DataTypes.Enums.EncounterType;
 
 public class GUIFactory {
+    public static final ArrayList<String> validNodeTypes = new ArrayList<>();
+
+    static {
+        validNodeTypes.add("Label");
+        validNodeTypes.add("ComboBox");
+        validNodeTypes.add("TextField");
+    }
+
     /**
      * This method only works correctly after the stage has been shown at least
      * one time
@@ -25,13 +34,18 @@ public class GUIFactory {
         double maximumNodeWidth = 0;
 
         for (Node node: gridPane.getChildren()) {
+            String nodeType = node.getTypeSelector();
+            if (!validNodeTypes.contains(nodeType)) {
+                continue; // skip the loop if the node type
+                // is invalid, ex: listview
+            }
+
             double nodeWidth = node.getBoundsInParent().getWidth();
+
             if (nodeWidth > maximumNodeWidth) {
                 maximumNodeWidth = nodeWidth;
             }
         } // Determine the largest width element shown
-
-        System.out.println("Largest Node: " + maximumNodeWidth);
 
         for (Node node: gridPane.getChildren()) {
             String nodeType = node.getTypeSelector();

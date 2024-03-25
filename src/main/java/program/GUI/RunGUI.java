@@ -106,6 +106,7 @@ public class RunGUI extends Application {
         });
         
         Scene scene = new Scene(gridPane, 1140, 500);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
 

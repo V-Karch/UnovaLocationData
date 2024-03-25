@@ -84,46 +84,50 @@ public class Collection {
     };
 
     private Collection filterLevel(String filterString) {
-        ArrayList<Entry> result = new ArrayList<Entry>();
+        ArrayList<Entry> result = new ArrayList<>();
 
-        for (int i = 0; i < this.collection.size(); i++) {
-            Entry currentEntry = this.collection.get(i);
-            int[] possibleLevels = currentEntry.getPossibleLevels();
-
-            if (filterString.contains("-")) {
-                String[] levelValues = filterString.split("-");
-                try {
-                    int minimum = Integer.parseInt(levelValues[0]);
-                    int maximum = Integer.parseInt(levelValues[1]);
-
-                    if (minimum > maximum || minimum <= 0 || maximum > 100) {
-                        throw new NumberFormatException(); 
-                        // Run straight to the catch if any of the
-                        // params are out of bounds
-                    }
-
+        if (!filterString.contains("-")) {
+            try { // no range found
+                int value = Integer.parseInt(filterString);
+                for (Entry entry: this.collection) {
+                    int[] possibleLevels = entry.getPossibleLevels();
                     for (int possibleLevel: possibleLevels) {
-                        if (minimum <= possibleLevel && possibleLevel <= maximum) {
-                            result.add(currentEntry);
-                            break;
-                        }
-                    }
-                } catch (NumberFormatException e) {
-                    return new Collection(result);
-                }
-            }
-
-            try {
-                int parsedInt = Integer.parseInt(filterString);
-
-                for (int j = 0; j < possibleLevels.length; j++) {
-                    if (possibleLevels[j] == parsedInt) {
-                        result.add(currentEntry);
-                        break; // Exit inner loop to prevent duplicate additions
+                        if (possibleLevel == value) {
+                            result.add(entry);
+                            break; // Leave loop early
+                        } // if a match for the value is found
                     }
                 }
             } catch (NumberFormatException e) {
-                return new Collection(result);
+                return this; // if anything breaks, act like nothing happened
+            }
+        } else {
+            String[] values = filterString.split("-");
+            try {
+                int minimum = Integer.parseInt(values[0]);
+                int maximum = Integer.parseInt(values[1]);
+
+                boolean hasBroken = false;
+                for (Entry entry: this.collection) {
+                    int[] possibleLevels = entry.getPossibleLevels();
+                    for (int possibleLevel: possibleLevels) {
+                        for (int i = minimum; i <= maximum; i++) {
+                            if (i == possibleLevel) {
+                                result.add(entry);
+                                hasBroken = true;
+                                break; // should exit to the possible levels
+                                // loop
+                            }
+                        }
+
+                        if (hasBroken) {
+                            hasBroken = false;
+                            break; // should exit to the entry loop
+                        }
+                    }
+                }
+            } catch (NumberFormatException e) {
+                return this; // act like nothing happened if it breaks
             }
         }
 

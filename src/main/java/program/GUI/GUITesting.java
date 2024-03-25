@@ -134,54 +134,36 @@ public class GUITesting extends Application {
 
         if (location != null) {
             result = result.filter(FilterType.LOCATION, location);
-            System.out.println("Filtered Location!");
-            result.printAllEntries();
         }
 
         if (gameVersion != null) {
             result = result.filter(FilterType.GAME_VERSION, gameVersion.toString());
-            System.out.println("Filtered Game Version!");
-            result.printAllEntries();
         } // I forgot that they all take in strings... womp womp
 
         if (encounterType != null) {
             result = result.filter(FilterType.ENCOUNTER_TYPE, encounterType.toString());
-            System.out.println("Filtered Encounter Type!");
-            result.printAllEntries();
         }
 
         if (modifier != null) {
             result = result.filter(FilterType.MODIFIER, modifier.toString());
-            System.out.println("Filtered Modifier!");
-            result.printAllEntries();
         }
 
         if (rarity != null) {
             result = result.filter(FilterType.RARITY, rarity.toString());
-            System.out.println("Filtered Rarity!");
-            result.printAllEntries();
         }
 
         if (season != null) {
             result = result.filter(FilterType.SEASON, season.toString());
-            System.out.println("Filtered Season!");
-            result.printAllEntries();
         }
 
         if (!pokemonName.equals("")) {
             result = result.filter(FilterType.POKEMON_NAME, pokemonName);
-            System.out.println("Filtered Pokemon Name!");
-            result.printAllEntries();
         }
 
         if (!levelValues.equals("")) {
             result = result.filter(FilterType.LEVEL, levelValues);
-            System.out.println("Filtered Level!");
-            result.printAllEntries();
         }
-
-        System.out.println("Reached end of method!");
-
+        
         return result;
     }
 }

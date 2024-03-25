@@ -20,11 +20,11 @@ import program.DataTypes.Classes.Collection;
 import program.DataTypes.Enums.EncounterType;
 import program.DataTypes.Classes.CollectionManager;
 
-public class GUITesting extends Application {
+public class RunGUI extends Application {
     public static final Collection allData = CollectionManager.loadAll();
     // Load all the data a single time so it doesn't have to be loaded
     // repeatedly, which would waste resources
-    public static void main(String args[]) {
+    public static void runGUI(String args[]) {
         Application.launch(args);
     }
 

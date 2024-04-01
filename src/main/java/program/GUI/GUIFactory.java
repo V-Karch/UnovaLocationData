@@ -1,7 +1,11 @@
 package program.GUI;
 
+import java.util.List;
+import java.util.Arrays;
+
 import javafx.scene.Node;
 import java.util.ArrayList;
+
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
@@ -19,91 +23,18 @@ import javafx.collections.ObservableList;
 import program.DataTypes.Enums.GameVersion;
 import program.DataTypes.Classes.Collection;
 import program.DataTypes.Enums.EncounterType;
+import program.DataTypes.Classes.CollectionManager;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class GUIFactory {
     private static final ArrayList<String> validNodeTypes = new ArrayList<>();
-    private static final ArrayList<String> validLocations = new ArrayList<>();
+    private static final List<String> validLocations = Arrays.asList(CollectionManager.allLocations);
 
     static {
         validNodeTypes.add("Label");
         validNodeTypes.add("ComboBox");
         validNodeTypes.add("TextField");
         validNodeTypes.add("Button");
-
-        // Lots of stuff in here, please try not to vomit
-        validLocations.add("All");
-        validLocations.add("Route 1");
-        validLocations.add("Route 2");
-        validLocations.add("Route 3");
-        validLocations.add("Route 4");
-        validLocations.add("Route 5");
-        validLocations.add("Route 6");
-        validLocations.add("Route 7");
-        validLocations.add("Route 8");
-        validLocations.add("Route 9");
-        validLocations.add("Route 10");
-        validLocations.add("Route 11");
-        validLocations.add("Route 12");
-        validLocations.add("Route 13");
-        validLocations.add("Route 14");
-        validLocations.add("Route 15");
-        validLocations.add("Route 16");
-        validLocations.add("Route 17");
-        validLocations.add("Route 18");
-        validLocations.add("Route 19");
-        validLocations.add("Route 20");
-        validLocations.add("Route 21");
-        validLocations.add("Route 22");
-        validLocations.add("Route 23");
-        validLocations.add("Abundant Shrine");
-        validLocations.add("Accumula Town");
-        validLocations.add("Aspertia City");
-        validLocations.add("Castelia City");
-        validLocations.add("Castelia Sewers");
-        validLocations.add("Celestial Tower");
-        validLocations.add("Challenger's Cave");
-        validLocations.add("Chargestone Cave");
-        validLocations.add("Clay Tunnel");
-        validLocations.add("Cold Storage");
-        validLocations.add("Desert Resort");
-        validLocations.add("Dragonspiral Tower");
-        validLocations.add("Dreamyard");
-        validLocations.add("Driftveil City");
-        validLocations.add("Driftveil Drawbridge");
-        validLocations.add("Floccesy Ranch");
-        validLocations.add("Giant Chasm");
-        validLocations.add("Humilau City");
-        validLocations.add("Icirrus City");
-        validLocations.add("Liberty Island");
-        validLocations.add("Lostlorn Forest");
-        validLocations.add("Marvelous Bridge");
-        validLocations.add("Mistralton Cave");
-        validLocations.add("Moor of Icirrus");
-        validLocations.add("N's Castle");
-        validLocations.add("Nacrene City");
-        validLocations.add("Nature Preserve");
-        validLocations.add("Nature Sanctuary");
-        validLocations.add("Nuvema Town");
-        validLocations.add("P2 Laboratory");
-        validLocations.add("Pinwheel Forest");
-        validLocations.add("Relic Castle");
-        validLocations.add("Relic Passage");
-        validLocations.add("Reversal Mountain");
-        validLocations.add("Roaming Unova");
-        validLocations.add("Seaside Cave");
-        validLocations.add("Strange House");
-        validLocations.add("Striaton City");
-        validLocations.add("Twist Mountain");
-        validLocations.add("Undella Bay");
-        validLocations.add("Undella Town");
-        validLocations.add("Underground Ruins");
-        validLocations.add("Victory Road");
-        validLocations.add("Village Bridge");
-        validLocations.add("Virbank City");
-        validLocations.add("Virbank Complex");
-        validLocations.add("Wellspring Cave");
-        validLocations.add("White Forest");
     }
 
     /**

@@ -37,6 +37,10 @@ public class Collection {
         });
     }
     private Collection filterEncounterType(String filterString) {
+        if (filterString.equals("all")) {
+            return this;
+        }
+
         ArrayList<Entry> result = this.collection
             .stream()
             .filter(e -> e.getEncounterType().toLowerCase().equals(filterString))

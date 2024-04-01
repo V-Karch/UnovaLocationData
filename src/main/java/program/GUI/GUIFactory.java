@@ -155,6 +155,7 @@ public class GUIFactory {
     public static ComboBox<EncounterType> encounterTypeDropdown() {
         ObservableList<EncounterType> options = 
             FXCollections.observableArrayList(
+                EncounterType.ALL,
                 EncounterType.WALKING,
                 EncounterType.SURFING,
                 EncounterType.SUPER_ROD,

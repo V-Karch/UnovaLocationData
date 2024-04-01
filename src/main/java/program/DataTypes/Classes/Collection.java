@@ -1,6 +1,8 @@
 package program.DataTypes.Classes;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 import program.DataTypes.Enums.FilterType;
 
 public class Collection {
@@ -35,31 +37,19 @@ public class Collection {
         });
     }
     private Collection filterEncounterType(String filterString) {
-        ArrayList<Entry> result = new ArrayList<Entry>();
-
-        for (int i = 0; i < this.collection.size(); i++) {
-            Entry currentEntry = this.collection.get(i);
-
-            if (currentEntry.getEncounterType().toLowerCase().equals(filterString)) {
-                // If the encounter types match add the entry to the ArrayList
-                result.add(currentEntry);
-            }
-        }
+        ArrayList<Entry> result = this.collection
+            .stream()
+            .filter(e -> e.getEncounterType().toLowerCase().equals(filterString))
+            .collect(Collectors.toCollection(ArrayList::new));;
 
         return new Collection(result);
     };
 
     private Collection filterFloor(String filterString) {
-        ArrayList<Entry> result = new ArrayList<Entry>();
-
-        for (int i = 0; i < this.collection.size(); i++) {
-            Entry currentEntry = this.collection.get(i);
-
-            if (currentEntry.getFloor().toLowerCase().equals(filterString)) {
-                // If floor matches
-                result.add(currentEntry);
-            }
-        }
+        ArrayList<Entry> result = this.collection
+            .stream()
+            .filter(e -> e.getFloor().toLowerCase().equals(filterString))
+            .collect(Collectors.toCollection(ArrayList::new));;
 
         return new Collection(result);
     };
@@ -135,42 +125,28 @@ public class Collection {
     };
 
     private Collection filterModifier(String filterString) {
-        ArrayList<Entry> result = new ArrayList<Entry>();
-        
-        for (int i = 0; i < this.collection.size(); i++) {
-            Entry currentEntry = this.collection.get(i);
-            
-            if (currentEntry.getModifier().toLowerCase().equals(filterString)) {
-                result.add(currentEntry);
-            }
-
-        }
+        ArrayList<Entry> result = this.collection
+            .stream()
+            .filter(e -> e.getModifier().toLowerCase().equals(filterString))
+            .collect(Collectors.toCollection(ArrayList::new));;
 
         return new Collection(result);
     };
 
     private Collection filterPokemonName(String filterString) {
-        ArrayList<Entry> result = new ArrayList<Entry>();
-        for (int i = 0; i < this.collection.size(); i++) {
-            Entry currentEntry = this.collection.get(i);
-
-            if (currentEntry.getPokemonName().toLowerCase().equals(filterString)) {
-                result.add(currentEntry);
-            }
-        }
+        ArrayList<Entry> result = this.collection
+            .stream()
+            .filter(e -> e.getPokemonName().toLowerCase().equals(filterString))
+            .collect(Collectors.toCollection(ArrayList::new));;
 
         return new Collection(result);
     };
 
     private Collection filterRarity(String filterString) {
-        ArrayList<Entry> result = new ArrayList<Entry>();
-        for (int i = 0; i < this.collection.size(); i++) {
-            Entry currentEntry = this.collection.get(i);
-
-            if (currentEntry.getRarity().toLowerCase().equals(filterString)) {
-                result.add(currentEntry);
-            }
-        }
+        ArrayList<Entry> result = this.collection
+            .stream()
+            .filter(e -> e.getRarity().toLowerCase().equals(filterString))
+            .collect(Collectors.toCollection(ArrayList::new));;
 
         return new Collection(result);
     };
@@ -194,14 +170,10 @@ public class Collection {
     };
 
     private Collection filterLocation(String filterString) {
-        ArrayList<Entry> result = new ArrayList<Entry>();
-        for (int i = 0; i < this.collection.size(); i++) {
-            Entry currentEntry = this.collection.get(i);
-
-            if (currentEntry.getLocation().toLowerCase().equals(filterString)) {
-                result.add(currentEntry);
-            }
-        }
+        ArrayList<Entry> result = this.collection
+            .stream()
+            .filter(e -> e.getLocation().toLowerCase().equals(filterString))
+            .collect(Collectors.toCollection(ArrayList::new));;
 
         return new Collection(result);
     };

@@ -245,7 +245,7 @@ public class Entry {
         String[] possibleSeasons = new String[this.seasons.length];
 
         for (int i = 0; i < this.seasons.length; i++) {
-            possibleSeasons[i] = this.seasons[i].toString();
+            possibleSeasons[i] = this.seasons[i].toString().toLowerCase();
         }
 
         return possibleSeasons;

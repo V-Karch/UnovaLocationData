@@ -64,22 +64,9 @@ public class Collection {
             return this;
         }
 
-        ArrayList<Entry> result = new ArrayList<Entry>();
-
-        for (int i = 0; i < this.collection.size(); i++) {
-            Entry currentEntry = this.collection.get(i);
-            String[] gameVersions = currentEntry.getGameVersionsArray();
-
-            for (int j = 0; j < gameVersions.length; j++) {
-                String gameVersionAsLowerCase = gameVersions[j].toLowerCase();
-                if (gameVersionAsLowerCase.equals(filterString)) {
-                    result.add(currentEntry); // Add the Entry
-                    break; // Exit inner loop so multiple of the same Entry aren't added
-                }
-            }
-        }
-
-        return new Collection(result);
+        return new Collection(this.collection.stream()
+        .filter(e -> Arrays.asList(e.getGameVersionsArray()).contains(filterString))
+        .collect(Collectors.toCollection(ArrayList::new)));
     };
 
     private Collection filterLevel(String filterString) {

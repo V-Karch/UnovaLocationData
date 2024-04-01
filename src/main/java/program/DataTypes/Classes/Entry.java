@@ -188,15 +188,15 @@ public class Entry {
         return this.minimumLevel == this.maximumLevel ? this.minimumLevel + "" : this.minimumLevel + "-" + this.maximumLevel;
     }
 
-    public int[] getPossibleLevels() {
+    public Integer[] getPossibleLevels() {
         if (this.minimumLevel == this.maximumLevel) {
-            return new int[] { this.minimumLevel };
+            return new Integer[] { this.minimumLevel };
             // If the levels are equal
             // just return one of them in an array of length 1
         }
 
         int levelDifference = this.maximumLevel - this.minimumLevel + 1;
-        int[] possibleLevels = new int[levelDifference];
+        Integer[] possibleLevels = new Integer[levelDifference];
         int possibleLevelsIndex = 0;
 
         for (int i = this.minimumLevel; i <= this.maximumLevel; i++) {

@@ -267,7 +267,7 @@ public class Entry {
         String[] possibleGameVersions = new String[this.gameVersions.length];
 
         for (int i = 0; i < this.gameVersions.length; i++) {
-            possibleGameVersions[i] = this.gameVersions[i].toString();
+            possibleGameVersions[i] = this.gameVersions[i].toString().toLowerCase();
         }
 
         return possibleGameVersions;

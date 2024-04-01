@@ -1,5 +1,6 @@
 package program.DataTypes.Classes;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -164,21 +165,10 @@ public class Collection {
             return this;
         }
 
-        ArrayList<Entry> result = new ArrayList<Entry>();
-        for (int i = 0; i < this.collection.size(); i++) {
-            Entry currentEntry = this.collection.get(i);
-            String[] seasons = currentEntry.getSeasonsArray();
-
-            for (int j = 0; j < seasons.length; j++) {
-                if (seasons[j].toLowerCase().equals(filterString)) {
-                    result.add(currentEntry);
-                    break;
-                }
-            }
-        }
-
-        return new Collection(result);
-
+        return new Collection(this.collection.stream()
+        .filter(e -> Arrays.asList(e.getSeasonsArray())
+        .contains(filterString))
+        .collect(Collectors.toCollection(ArrayList::new)));
     };
 
     private Collection filterLocation(String filterString) {

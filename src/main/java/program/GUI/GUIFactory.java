@@ -231,6 +231,7 @@ public class GUIFactory {
     public static ComboBox<Season> seasonDropdown() {
         ObservableList<Season> options =
             FXCollections.observableArrayList(
+                Season.ALL,
                 Season.SPRING,
                 Season.SUMMER,
                 Season.AUTUMN,

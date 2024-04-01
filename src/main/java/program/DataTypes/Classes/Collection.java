@@ -170,6 +170,10 @@ public class Collection {
     };
 
     private Collection filterLocation(String filterString) {
+        if (filterString.equals("all")) {
+            return this;
+        }
+
         ArrayList<Entry> result = this.collection
             .stream()
             .filter(e -> e.getLocation().toLowerCase().equals(filterString))

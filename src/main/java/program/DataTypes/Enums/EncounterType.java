@@ -6,7 +6,8 @@ public enum EncounterType {
     SUPER_ROD("Super Rod"),
     INTERACT("Interact"),
     TRADE("Trade"),
-    GIFT("Gift");
+    GIFT("Gift"),
+    ALL("All");
 
     private String encounterTypeString;
 

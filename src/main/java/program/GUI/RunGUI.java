@@ -35,7 +35,7 @@ public class RunGUI extends Application {
         gridPane.setVgap(5);
         gridPane.setStyle("-fx-background-color: #9a9a9a");
         gridPane.setPadding(new Insets(5, 5, 5, 5));
-        stage.setTitle("Unova Location Data Parser");
+        stage.setTitle("Gen 5 Location Data Parser");
 
         // Variable Setup
         Label gameVersionLabel = GUIFactory.gameVersionLabel();

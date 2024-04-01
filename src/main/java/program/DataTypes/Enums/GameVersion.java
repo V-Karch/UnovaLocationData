@@ -4,7 +4,8 @@ public enum GameVersion {
     BLACK("Black"),
     WHITE("White"),
     BLACK2("Black 2"),
-    WHITE2("White 2");
+    WHITE2("White 2"),
+    ALL("All");
 
     private String gameVersionString;
 

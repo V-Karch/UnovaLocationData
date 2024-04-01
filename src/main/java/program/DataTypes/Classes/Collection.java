@@ -205,18 +205,13 @@ public class Collection {
         }
     }
 
-    public Collection combine(Object object) {
-        if (!(object instanceof Collection)) {
-            return null;
-        }
-
+    public Collection combine(Collection otherCollection) {
         ArrayList<Entry> result = this.collection;
-        Collection otherCollection = (Collection)object;
         ArrayList<Entry> otherEntries = otherCollection.getAllEntries();
 
-        for (int i = 0; i < otherEntries.size(); i++) {
-            result.add(otherEntries.get(i));
-        }
+        otherEntries.stream().forEach(entry -> {
+            result.add(entry);
+        });
 
         return new Collection(result);
     }

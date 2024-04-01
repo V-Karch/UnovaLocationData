@@ -1,9 +1,10 @@
 package program.DataTypes.Classes;
 
+import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 import java.util.stream.Collectors;
-
 import program.DataTypes.Enums.FilterType;
 
 public class Collection {
@@ -70,54 +71,36 @@ public class Collection {
     };
 
     private Collection filterLevel(String filterString) {
-        ArrayList<Entry> result = new ArrayList<>();
-
         if (!filterString.contains("-")) {
             try { // no range found
                 int value = Integer.parseInt(filterString);
-                for (Entry entry: this.collection) {
-                    int[] possibleLevels = entry.getPossibleLevels();
-                    for (int possibleLevel: possibleLevels) {
-                        if (possibleLevel == value) {
-                            result.add(entry);
-                            break; // Leave loop early
-                        } // if a match for the value is found
-                    }
-                }
+
+                return new Collection(
+                    this.collection.stream()
+                    .filter(e -> Arrays.asList(e.getPossibleLevels()).contains(value))
+                    .collect(Collectors.toCollection(ArrayList::new))
+                );
             } catch (NumberFormatException e) {
                 return this; // if anything breaks, act like nothing happened
             }
         } else {
             String[] values = filterString.split("-");
+
             try {
                 int minimum = Integer.parseInt(values[0]);
                 int maximum = Integer.parseInt(values[1]);
 
-                boolean hasBroken = false;
-                for (Entry entry: this.collection) {
-                    int[] possibleLevels = entry.getPossibleLevels();
-                    for (int possibleLevel: possibleLevels) {
-                        for (int i = minimum; i <= maximum; i++) {
-                            if (i == possibleLevel) {
-                                result.add(entry);
-                                hasBroken = true;
-                                break; // should exit to the possible levels
-                                // loop
-                            }
-                        }
+                List<Integer> levelRange = IntStream.rangeClosed(minimum, maximum).boxed().collect(Collectors.toList());
 
-                        if (hasBroken) {
-                            hasBroken = false;
-                            break; // should exit to the entry loop
-                        }
-                    }
-                }
+                return new Collection(
+                    this.collection.stream()
+                    .filter(e -> Arrays.asList(e.getPossibleLevels()).stream().anyMatch(levelRange::contains))
+                    .collect(Collectors.toCollection(ArrayList::new))
+                );
             } catch (NumberFormatException e) {
                 return this; // act like nothing happened if it breaks
             }
         }
-
-        return new Collection(result);
     };
 
     private Collection filterModifier(String filterString) {

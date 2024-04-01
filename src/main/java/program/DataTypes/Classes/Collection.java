@@ -30,9 +30,9 @@ public class Collection {
     }
 
     public void printAllEntries() {
-        for (int i = 0; i < collection.size(); i++) {
-            System.out.println(collection.get(i));
-        }
+        this.collection.stream().forEach(entry -> {
+            System.out.println(entry);
+        });
     }
     private Collection filterEncounterType(String filterString) {
         ArrayList<Entry> result = new ArrayList<Entry>();

@@ -175,12 +175,12 @@ public class GUIFactory {
     public static ComboBox<GameVersion> gameVersionDropdown() {
         ObservableList<GameVersion> options = 
             FXCollections.observableArrayList(
+                GameVersion.ALL,
                 GameVersion.BLACK,
                 GameVersion.WHITE,
                 GameVersion.BLACK2,
                 GameVersion.WHITE2
             );
-        // ^^ POSSIBLY MODIFY LATER TO INCLUDE ALL GAME VERSIONS AS AN OPTION
 
         final ComboBox<GameVersion> dropdownMenu = new ComboBox<>(options);
         return dropdownMenu;

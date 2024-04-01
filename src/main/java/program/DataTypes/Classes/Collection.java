@@ -55,6 +55,10 @@ public class Collection {
     };
 
     private Collection filterGameVersion(String filterString) {
+        if (filterString.equals("all")) {
+            return this;
+        }
+
         ArrayList<Entry> result = new ArrayList<Entry>();
 
         for (int i = 0; i < this.collection.size(); i++) {

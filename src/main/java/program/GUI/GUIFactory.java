@@ -26,6 +26,11 @@ import program.DataTypes.Enums.EncounterType;
 import program.DataTypes.Classes.CollectionManager;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * Contains all of the GUI elements used by the program, stored as static, single-load objects
+ * 
+ * @author Luna Karch
+ */
 public class GUIFactory {
     private static final ArrayList<String> validNodeTypes = new ArrayList<>();
     private static final List<String> validLocations = Arrays.asList(CollectionManager.allLocations);
@@ -36,6 +41,77 @@ public class GUIFactory {
         validNodeTypes.add("TextField");
         validNodeTypes.add("Button");
     }
+
+    public static final Label gameVersionLabel = new Label("Game Version:");
+    public static final Label modifierLabel = new Label("Modifier:");
+    public static final Label rarityLabel = new Label("Rarity:");
+    public static final Label seasonLabel = new Label("Season:");
+    public static final TextField pokemonNameEntry = new TextField();
+    public static final Label pokemonNameLabel = new Label("Pokemon Name:");
+    public static final TextField levelEntry = new TextField();
+    public static final Label levelLabel = new Label("Level:");
+    public static final Button resetButton = new Button("Reset Filters");
+    public static final Button searchButton = new Button("Search");
+    public static final Label locationLabel = new Label("Location:");
+    public static final Label encounterTypeLabel = new Label("Encounter Type:");
+
+    public static final ComboBox<EncounterType> encounterTypeDropdown = new ComboBox<>(
+        FXCollections.observableArrayList(
+                EncounterType.ALL,
+                EncounterType.WALKING,
+                EncounterType.SURFING,
+                EncounterType.SUPER_ROD,
+                EncounterType.INTERACT,
+                EncounterType.TRADE,
+                EncounterType.GIFT
+            )
+    );
+
+    public static final ComboBox<GameVersion> gameVersionDropdown = new ComboBox<>(
+        FXCollections.observableArrayList(
+                GameVersion.ALL,
+                GameVersion.BLACK,
+                GameVersion.WHITE,
+                GameVersion.BLACK2,
+                GameVersion.WHITE2
+            )
+    );
+
+    public static final ComboBox<Modifier> modifierDropdown = new ComboBox<>(
+        FXCollections.observableArrayList(
+                Modifier.NONE,
+                Modifier.DOUBLE_GRASS,
+                Modifier.SHAKING_BUBBLING_SPOTS,
+                Modifier.SWARM
+            )
+    );
+
+    public static final ComboBox<Rarity> rarityDropdown = new ComboBox<>(
+        FXCollections.observableArrayList(
+                Rarity.COMMON,
+                Rarity.UNCOMMON,
+                Rarity.RARE,
+                Rarity.LIMITED
+            )
+    );
+
+    public static final ComboBox<Season> seasonDropdown = new ComboBox<>(
+        FXCollections.observableArrayList(
+                Season.ALL,
+                Season.SPRING,
+                Season.SUMMER,
+                Season.AUTUMN,
+                Season.WINTER
+            )
+    );
+
+    public static final ComboBox<String> locationDropDown = new ComboBox<>(
+        FXCollections.observableArrayList(validLocations)
+    );
+
+    public static final ListView<Entry> entryList = new ListView<>();
+
+    public static final TableView<Entry> entryTableView = makeEntryTableView();
 
     /**
      * This method only works correctly after the stage has been shown at least
@@ -83,150 +159,13 @@ public class GUIFactory {
 
         return maximumNodeWidth;
     }
-    public static ComboBox<EncounterType> encounterTypeDropdown() {
-        ObservableList<EncounterType> options = 
-            FXCollections.observableArrayList(
-                EncounterType.ALL,
-                EncounterType.WALKING,
-                EncounterType.SURFING,
-                EncounterType.SUPER_ROD,
-                EncounterType.INTERACT,
-                EncounterType.TRADE,
-                EncounterType.GIFT
-            );
 
-        final ComboBox<EncounterType> dropdownMenu = new ComboBox<>(options);
-        return dropdownMenu;
-    }
-
-    public static Label encounterTypeLabel() {
-        Label label = new Label("Encounter Type:");
-        return label;
-    }
-
-    public static ComboBox<GameVersion> gameVersionDropdown() {
-        ObservableList<GameVersion> options = 
-            FXCollections.observableArrayList(
-                GameVersion.ALL,
-                GameVersion.BLACK,
-                GameVersion.WHITE,
-                GameVersion.BLACK2,
-                GameVersion.WHITE2
-            );
-
-        final ComboBox<GameVersion> dropdownMenu = new ComboBox<>(options);
-        return dropdownMenu;
-    }
-
-    public static Label gameVersionLabel() {
-        Label label = new Label("Game Version:");
-        return label;
-    }
-
-    public static ComboBox<Modifier> modifierDropdown() {
-        ObservableList<Modifier> options =
-            FXCollections.observableArrayList(
-                Modifier.NONE,
-                Modifier.DOUBLE_GRASS,
-                Modifier.SHAKING_BUBBLING_SPOTS,
-                Modifier.SWARM
-            );
-
-        final ComboBox<Modifier> dropdownMenu = new ComboBox<>(options);
-        return dropdownMenu;
-    }
-
-    public static Label modifierLabel() {
-        Label label = new Label("Modifier:");
-        return label;
-    }
-
-    public static ComboBox<Rarity> rarityDropdown() {
-        ObservableList<Rarity> options = 
-            FXCollections.observableArrayList(
-                Rarity.COMMON,
-                Rarity.UNCOMMON,
-                Rarity.RARE,
-                Rarity.LIMITED
-            );
-
-        final ComboBox<Rarity> dropdownMenu = new ComboBox<>(options);
-        return dropdownMenu;
-    }
-
-    public static Label rarityLabel() {
-        Label label = new Label("Rarity:");
-        return label;
-    }
-
-    public static ComboBox<Season> seasonDropdown() {
-        ObservableList<Season> options =
-            FXCollections.observableArrayList(
-                Season.ALL,
-                Season.SPRING,
-                Season.SUMMER,
-                Season.AUTUMN,
-                Season.WINTER
-            );
-
-        final ComboBox<Season> dropdownMenu = new ComboBox<>(options);
-        return dropdownMenu;
-    }
-
-    public static Label seasonLabel() {
-        Label label = new Label("Season:");
-        return label;
-    }
-
-    public static TextField pokemonNameEntry() {
-        TextField entryField = new TextField();
-        return entryField;
-    }
-
-    public static Label pokemonNameLabel() {
-        Label label = new Label("Pokemon Name:");
-        return label;
-    }
-
-    public static TextField levelEntry() {
-        TextField entryField = new TextField();
-        return entryField;
-    }
-
-    public static Label levelLabel() {
-        Label label = new Label("Level:");
-        return label;
-    }
-
-    public static Button resetButton() {
-        Button button = new Button("Reset Filters");
-        return button;
-    }
-
-    public static Button searchButton() {
-        Button button = new Button("Search");
-        return button;
-    }
-
-    public static ComboBox<String> locationDropDown() {
-        ObservableList<String> options = FXCollections.observableArrayList(validLocations);
-        final ComboBox<String> dropdownMenu = new ComboBox<>(options);
-
-        return dropdownMenu;
-    }
-    
-    public static Label locationLabel() {
-        Label label = new Label("Location:");
-        return label;
-    }
-
-    public static ListView<Entry> entryList() {
-        ListView<Entry> list = new ListView<>();
-        return list;
-    }
-
+    /**
+     * 
+     * @return Returns a TableView<Entry>, the Table View used internally to provide a single static object reference to the required table
+     */
     @SuppressWarnings("unchecked")
-    public static TableView<Entry> entryTableView() {
+    private static TableView<Entry> makeEntryTableView() {
         TableView<Entry> entryTable = new TableView<>();
         entryTable.setEditable(false);
         TableColumn<Entry, String> pokemonNameColumn = new TableColumn<>("Pokemon"); 

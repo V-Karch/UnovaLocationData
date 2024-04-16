@@ -1,8 +1,12 @@
 package program.DataTypes.Classes;
 
+import java.util.HashMap;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+
 import com.opencsv.CSVReader;
 import program.DataTypes.Enums.Rarity;
 import program.DataTypes.Enums.Season;
@@ -278,29 +282,15 @@ public class Entry {
     }
 
     public String getGameVersions() {
-        String result = "";
+        HashMap<String, String> aliases = new HashMap<>();
+        aliases.put("black", "B");
+        aliases.put("white", "W");
+        aliases.put("black 2", "B2");
+        aliases.put("white 2", "W2");
 
-        for (String version: this.getGameVersionsArray()) {
-            if (version.toLowerCase().equals("black")) {
-                result += "B";
-            }
-
-            if (version.toLowerCase().equals("white")) {
-                result += "W";
-            }
-
-            if (version.toLowerCase().equals("black 2")) {
-                result += "B2";
-            }
-
-            if (version.toLowerCase().equals("white 2")) {
-                result += "W2";
-            }
-
-            result += "/";
-        }
-
-        return result.substring(0, result.length() - 1);
+        return Stream.of(this.getGameVersionsArray())
+            .map(version -> aliases.get(version.toLowerCase()))
+            .collect(Collectors.joining("/")); /** This is wild */
     }
 
     private String formatGameVersionsForToString() {

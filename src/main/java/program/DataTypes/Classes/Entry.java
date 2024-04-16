@@ -294,14 +294,7 @@ public class Entry {
     }
 
     private String formatGameVersionsForToString() {
-        String[] gameVersions = this.getGameVersionsArray();
-        String output = "";
-
-        for (int i = 0; i < gameVersions.length; i++) {
-            output += gameVersions[i] + ", ";
-        }
-
-        return output.substring(0, output.length() - 2);
+        return Stream.of(this.getGameVersionsArray()).collect(Collectors.joining(", "));
     }
 
     private String formatSeasonsForToString() {

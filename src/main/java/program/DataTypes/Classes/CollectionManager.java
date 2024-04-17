@@ -1,5 +1,7 @@
 package program.DataTypes.Classes;
 
+import java.util.Arrays;
+
 public class CollectionManager {
     public static String[] allLocations = {
         "Route 1",
@@ -107,14 +109,7 @@ public class CollectionManager {
      */
     private static boolean isValidLocation(String locationName) {
         String asLowerCase = locationName.toLowerCase();
-
-        for (int i = 0; i < allLocations.length; i++) {
-            if (asLowerCase.equals(allLocations[i].toLowerCase())) {
-                return true;
-            }
-        }
-
-        return false;
+        return Arrays.asList(allLocations).contains(asLowerCase);
     }
 
     public static void listValidLocations() {

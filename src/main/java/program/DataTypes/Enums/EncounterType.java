@@ -11,14 +11,10 @@ public enum EncounterType {
 
     private String encounterTypeString;
 
-    private EncounterType(String encounterTypeString) {
-        this.encounterTypeString = encounterTypeString;
-    }
+    private EncounterType(String encounterTypeString) { this.encounterTypeString = encounterTypeString; }
 
     @Override
-    public String toString() {
-        return this.encounterTypeString;
-    }
+    public String toString() { return this.encounterTypeString; }
 
     public static EncounterType fromString(String readString) {
         switch (readString) {

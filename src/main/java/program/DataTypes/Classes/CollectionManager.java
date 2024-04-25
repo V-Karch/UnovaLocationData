@@ -1,6 +1,7 @@
 package program.DataTypes.Classes;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class CollectionManager {
     public static String[] allLocations = {
@@ -113,13 +114,9 @@ public class CollectionManager {
     }
 
     public static void listValidLocations() {
-        String toPrint = "";
-        for (int i = 0; i < allLocations.length; i++) {
-            toPrint += allLocations[i] + ", ";
-        }
-
-        toPrint = toPrint.substring(0, toPrint.length() - 2);
-
-        System.out.println(toPrint);
+        System.out.println(
+            Arrays.stream(allLocations)
+            .collect(Collectors.joining(", "))
+        );
     }
 }

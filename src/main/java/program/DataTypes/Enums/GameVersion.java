@@ -14,9 +14,7 @@ public enum GameVersion {
     }
 
     @Override
-    public String toString() {
-        return this.gameVersionString;
-    }
+    public String toString() { return this.gameVersionString; }
 
     public static GameVersion[] fromString(String readLine) {
         String[] gameStrings = readLine.split("/");

@@ -4,7 +4,7 @@ module program {
     requires javafx.fxml;
     requires transitive javafx.media;
     requires java.desktop;
-    requires transitive com.opencsv;
+    requires com.opencsv;
 
     exports program;
     exports program.GUI;

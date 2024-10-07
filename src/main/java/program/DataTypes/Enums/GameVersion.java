@@ -7,7 +7,7 @@ public enum GameVersion {
     WHITE2("White 2"),
     ALL("All");
 
-    private String gameVersionString;
+    private final String gameVersionString;
 
     private GameVersion(String gameVersionString) {
         this.gameVersionString = gameVersionString;

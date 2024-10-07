@@ -7,7 +7,7 @@ public enum Season {
     WINTER("Winter"),
     ALL("All");
 
-    private String seasonString;
+    private final String seasonString;
 
     private Season(String seasonString) {
         this.seasonString = seasonString;

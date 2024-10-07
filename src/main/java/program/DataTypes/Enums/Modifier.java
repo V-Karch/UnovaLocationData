@@ -6,7 +6,7 @@ public enum Modifier {
     NONE("None"),
     SWARM("Swarm");
 
-    private String modifierString;
+    private final String modifierString;
 
     private Modifier(String modifierString) {
         this.modifierString = modifierString;

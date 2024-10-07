@@ -1,33 +1,34 @@
 package program.DataTypes.Classes;
 
-import java.util.HashMap;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.stream.Stream;
+import java.util.HashMap;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.opencsv.CSVReader;
-import program.DataTypes.Enums.Rarity;
-import program.DataTypes.Enums.Season;
-import program.DataTypes.Enums.Modifier;
-import program.DataTypes.Enums.GameVersion;
-import program.DataTypes.Enums.EncounterType;
 import com.opencsv.exceptions.CsvValidationException;
 
+import program.DataTypes.Enums.EncounterType;
+import program.DataTypes.Enums.GameVersion;
+import program.DataTypes.Enums.Modifier;
+import program.DataTypes.Enums.Rarity;
+import program.DataTypes.Enums.Season;
+
 public class Entry {
-    private String floor;
-    private Rarity rarity;
-    private String details;
-    private String location;
-    private int minimumLevel;
-    private int maximumLevel;
-    private Season[] seasons;
-    private Modifier modifier;
-    private String pokemonName;
-    private String formInformation;
-    private GameVersion[] gameVersions;
-    private EncounterType encounterType;
+    private final String floor;
+    private final Rarity rarity;
+    private final String details;
+    private final String location;
+    private final int minimumLevel;
+    private final int maximumLevel;
+    private final Season[] seasons;
+    private final Modifier modifier;
+    private final String pokemonName;
+    private final String formInformation;
+    private final GameVersion[] gameVersions;
+    private final EncounterType encounterType;
 
     public Entry(String floor, Rarity rarity, String details, 
     String location, int minimumLevel, int maximumLevel, 
@@ -52,8 +53,8 @@ public class Entry {
         try (FileReader fileReader = new FileReader(filename);
         CSVReader csvReader = new CSVReader(fileReader);
         ) {
-            String[] nextRecord = csvReader.readNext(); // Skip header
-            nextRecord = csvReader.readNext(); // Assign to first row
+            csvReader.readNext(); // Skip header
+            String[] nextRecord = csvReader.readNext(); // Assign to first row
             ArrayList<Entry> result = new ArrayList<>();
             Boolean started_recording = false; // whether or not the reader has found a matching location
 
@@ -110,11 +111,7 @@ public class Entry {
 
             return result;
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        } catch (CsvValidationException e) {
-            e.printStackTrace();
+        } catch (IOException | CsvValidationException e) {
             return null;
         }
     }
@@ -123,8 +120,9 @@ public class Entry {
         try (FileReader fileReader = new FileReader(filename);
         CSVReader csvReader = new CSVReader(fileReader);
         ) {
-            String[] nextRecord = csvReader.readNext(); // Skip header
-            nextRecord = csvReader.readNext(); // Assign first value
+            csvReader.readNext(); // Skip header
+            
+            String[] nextRecord = csvReader.readNext(); // Assign first value
             ArrayList<Entry> result = new ArrayList<>();
 
             while (nextRecord != null) {
@@ -163,11 +161,7 @@ public class Entry {
 
             return result;
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        } catch (CsvValidationException e) {
-            e.printStackTrace();
+        } catch (IOException | CsvValidationException e) {
             return null;
         }
     }
@@ -298,11 +292,11 @@ public class Entry {
     }
 
     private String formatSeasonsForToString() {
-        String[] seasons = this.getSeasonsArray();
+        String[] local_seasons = this.getSeasonsArray();
         String output = "";
 
-        for (int i = 0; i < seasons.length; i++) {
-            output += seasons[i] + ", ";
+        for (String season : local_seasons) {
+            output += season + ", ";
         }
 
         return output.substring(0, output.length() - 2);
@@ -323,7 +317,5 @@ public class Entry {
         for (int i = 0; i < givenEntires.size(); i++) {
             System.out.println(givenEntires.get(i));
         }
-
-        return;
     }
 }

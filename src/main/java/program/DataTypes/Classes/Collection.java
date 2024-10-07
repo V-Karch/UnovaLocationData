@@ -5,10 +5,11 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.stream.IntStream;
 import java.util.stream.Collectors;
+
 import program.DataTypes.Enums.FilterType;
 
 public class Collection {
-    private ArrayList<Entry> collection;
+    private final ArrayList<Entry> collection;
     public String locationName;
     public Collection(String locationName) {
         this.collection = Entry.readLocation("data/encounterData.csv", locationName);
@@ -46,7 +47,7 @@ public class Collection {
         ArrayList<Entry> result = this.collection
             .stream()
             .filter(e -> e.getEncounterType().toLowerCase().equals(filterString))
-            .collect(Collectors.toCollection(ArrayList::new));;
+            .collect(Collectors.toCollection(ArrayList::new));
 
         return new Collection(result);
     };
@@ -55,7 +56,7 @@ public class Collection {
         ArrayList<Entry> result = this.collection
             .stream()
             .filter(e -> e.getFloor().toLowerCase().equals(filterString))
-            .collect(Collectors.toCollection(ArrayList::new));;
+            .collect(Collectors.toCollection(ArrayList::new));
 
         return new Collection(result);
     };
@@ -65,9 +66,11 @@ public class Collection {
             return this;
         }
 
-        return new Collection(this.collection.stream()
-        .filter(e -> Arrays.asList(e.getGameVersionsArray()).contains(filterString))
-        .collect(Collectors.toCollection(ArrayList::new)));
+        ArrayList<Entry> filteredEntries = this.collection.stream()
+            .filter(e -> Arrays.asList(e.getGameVersionsArray()).contains(filterString))
+            .collect(Collectors.toCollection(ArrayList::new));
+        
+        return new Collection(filteredEntries);
     };
 
     private Collection filterLevel(String filterString) {
@@ -75,11 +78,11 @@ public class Collection {
             try { // no range found
                 int value = Integer.parseInt(filterString);
 
-                return new Collection(
-                    this.collection.stream()
+                ArrayList<Entry> filteredEntries = this.collection.stream()
                     .filter(e -> Arrays.asList(e.getPossibleLevels()).contains(value))
-                    .collect(Collectors.toCollection(ArrayList::new))
-                );
+                    .collect(Collectors.toCollection(ArrayList::new));
+
+                return new Collection(filteredEntries);
             } catch (NumberFormatException e) {
                 return this; // if anything breaks, act like nothing happened
             }
@@ -92,11 +95,11 @@ public class Collection {
 
                 List<Integer> levelRange = IntStream.rangeClosed(minimum, maximum).boxed().collect(Collectors.toList());
 
-                return new Collection(
-                    this.collection.stream()
+                ArrayList<Entry> filteredEntries = this.collection.stream()
                     .filter(e -> Arrays.asList(e.getPossibleLevels()).stream().anyMatch(levelRange::contains))
-                    .collect(Collectors.toCollection(ArrayList::new))
-                );
+                    .collect(Collectors.toCollection(ArrayList::new));
+
+                return new Collection(filteredEntries);
             } catch (NumberFormatException e) {
                 return this; // act like nothing happened if it breaks
             }
@@ -107,7 +110,7 @@ public class Collection {
         ArrayList<Entry> result = this.collection
             .stream()
             .filter(e -> e.getModifier().toLowerCase().equals(filterString))
-            .collect(Collectors.toCollection(ArrayList::new));;
+            .collect(Collectors.toCollection(ArrayList::new));
 
         return new Collection(result);
     };
@@ -116,7 +119,7 @@ public class Collection {
         ArrayList<Entry> result = this.collection
             .stream()
             .filter(e -> e.getPokemonName().toLowerCase().equals(filterString))
-            .collect(Collectors.toCollection(ArrayList::new));;
+            .collect(Collectors.toCollection(ArrayList::new));
 
         return new Collection(result);
     };
@@ -125,7 +128,7 @@ public class Collection {
         ArrayList<Entry> result = this.collection
             .stream()
             .filter(e -> e.getRarity().toLowerCase().equals(filterString))
-            .collect(Collectors.toCollection(ArrayList::new));;
+            .collect(Collectors.toCollection(ArrayList::new));
 
         return new Collection(result);
     };
@@ -135,10 +138,12 @@ public class Collection {
             return this;
         }
 
-        return new Collection(this.collection.stream()
-        .filter(e -> Arrays.asList(e.getSeasonsArray())
-        .contains(filterString))
-        .collect(Collectors.toCollection(ArrayList::new)));
+        ArrayList<Entry> filteredEntries = this.collection.stream()
+            .filter(e -> Arrays.asList(e.getSeasonsArray())
+            .contains(filterString))
+            .collect(Collectors.toCollection(ArrayList::new));
+
+        return new Collection(filteredEntries);
     };
 
     private Collection filterLocation(String filterString) {
@@ -149,7 +154,7 @@ public class Collection {
         ArrayList<Entry> result = this.collection
             .stream()
             .filter(e -> e.getLocation().toLowerCase().equals(filterString))
-            .collect(Collectors.toCollection(ArrayList::new));;
+            .collect(Collectors.toCollection(ArrayList::new));
 
         return new Collection(result);
     };

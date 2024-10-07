@@ -6,7 +6,7 @@ public enum Rarity {
     RARE("Rare"),
     LIMITED("Limited");
 
-    private String rarityString;
+    private final String rarityString;
 
     private Rarity(String rarityString) {
         this.rarityString = rarityString;

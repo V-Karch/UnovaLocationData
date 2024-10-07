@@ -9,7 +9,7 @@ public enum EncounterType {
     GIFT("Gift"),
     ALL("All");
 
-    private String encounterTypeString;
+    private final String encounterTypeString;
 
     private EncounterType(String encounterTypeString) { this.encounterTypeString = encounterTypeString; }
 

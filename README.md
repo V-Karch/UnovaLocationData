@@ -1,6 +1,6 @@
 # UnovaLocationData
 
-Note: The functionality of this program exists elswhere, such as other places like [pokemondb](https://pokemondb.net/location#tab=loc-unova)
+Note: The functionality of this program exists elswhere, such as [pokemondb](https://pokemondb.net/location#tab=loc-unova)
 
 UnovaLocationData is a Java program designed to facilitate easy searching through the Encounter Data for Generation 5 Pokémon games, including Pokemon Black, Pokemon White, Pokemon Black 2, and Pokemon White 2. The program, currently in development, aims to provide a user-friendly GUI with various filter options for efficiently navigating through the encounter data.
 
